@@ -51,14 +51,21 @@ The student has just gotten multiple questions wrong in the topic: '{topic}'.
 Provide a short, encouraging "Pro-tip" or warning in friendly Hinglish (e.g. starting with "Beta...").
 Identify what fundamental concept they might be missing based on the topic '{topic}', and give them a quick tip to revise it. Keep it under 3-4 sentences.
 """
-    try:
-        response = client.chat.completions.create(
-            model="grok-2",
-            messages=[{"role": "user", "content": prompt}]
-        )
-        return response.choices[0].message.content
-    except Exception as e:
-        return f"Error connecting to AI: {e}"
+    models_to_try = ["grok-latest", "grok-2", "grok-beta"]
+    last_error = ""
+    for model_name in models_to_try:
+        try:
+            response = client.chat.completions.create(
+                model=model_name,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            return response.choices[0].message.content
+        except Exception as e:
+            last_error = str(e)
+            if "Model not found" in last_error:
+                continue
+            break
+    return f"Error connecting to AI: {last_error}"
 
 # Phase 6: The Analogy Library
 ANALOGY_LIBRARY = {
@@ -103,14 +110,21 @@ Task for {insight_type}:
    - Keywords: (Give a specific tip like: "Answer mein 'Refraction' ke saath 'Optical Density' word ka hona must hai.")
    - Analogy: (Use a daily life example to explain the core concept. { 'Follow the CRITICAL RULE above for the specific analogy.' if specific_analogy_instruction else 'Invent a highly relatable analogy like traffic or kitchen recipes.' })
 """
-    try:
-        response = client.chat.completions.create(
-            model="grok-2",
-            messages=[{"role": "user", "content": prompt}]
-        )
-        return response.choices[0].message.content
-    except Exception as e:
-        return f"Error connecting to AI: {e}"
+    models_to_try = ["grok-latest", "grok-2", "grok-beta"]
+    last_error = ""
+    for model_name in models_to_try:
+        try:
+            response = client.chat.completions.create(
+                model=model_name,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            return response.choices[0].message.content
+        except Exception as e:
+            last_error = str(e)
+            if "Model not found" in last_error:
+                continue
+            break
+    return f"Error connecting to AI: {last_error}"
 
 st.set_page_config(page_title="Student Dashboard", page_icon="📚", layout="wide")
 
@@ -315,14 +329,24 @@ def main():
                 if client:
                     with st.spinner(f"Generating Cheat Sheet for {q['Topic']}..."):
                         cheat_prompt = f"Create a 3-point cheat sheet for the Class 10 Science topic '{q['Topic']}'. Focus STRICTLY on the 3 most important concepts that are guaranteed to appear in board exams. Use short bullet points and bold key terms."
-                        try:
-                            response = client.chat.completions.create(
-                                model="grok-2",
-                                messages=[{"role": "user", "content": cheat_prompt}]
-                            )
-                            st.info(response.choices[0].message.content)
-                        except Exception as e:
-                            st.error(f"Error: {e}")
+                        models_to_try = ["grok-latest", "grok-2", "grok-beta"]
+                        success = False
+                        for model_name in models_to_try:
+                            try:
+                                response = client.chat.completions.create(
+                                    model=model_name,
+                                    messages=[{"role": "user", "content": cheat_prompt}]
+                                )
+                                st.info(response.choices[0].message.content)
+                                success = True
+                                break
+                            except Exception as e:
+                                if "Model not found" in str(e):
+                                    continue
+                                st.error(f"Error: {e}")
+                                break
+                        if not success:
+                            st.error("Could not find a compatible Grok model. Please check your API access.")
                 else:
                     st.info("💡 (AI offline. Add API key in sidebar to get dynamic cheat sheets!)")
 
