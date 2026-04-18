@@ -53,7 +53,7 @@ Identify what fundamental concept they might be missing based on the topic '{top
 """
     try:
         response = client.chat.completions.create(
-            model="grok-2-latest",
+            model="grok-beta",
             messages=[{"role": "user", "content": prompt}]
         )
         return response.choices[0].message.content
@@ -105,7 +105,7 @@ Task for {insight_type}:
 """
     try:
         response = client.chat.completions.create(
-            model="grok-2-latest",
+            model="grok-beta",
             messages=[{"role": "user", "content": prompt}]
         )
         return response.choices[0].message.content
@@ -179,17 +179,22 @@ def main():
     
     client = None
     if api_key:
-        client = OpenAI(api_key=api_key, base_url="https://api.x.ai/v1")
-        st.sidebar.success("API Key configured! Grok AI Teacher is active.")
+        try:
+            client = OpenAI(api_key=api_key, base_url="https://api.x.ai/v1")
+            st.sidebar.success("✅ AI Active (Grok)")
+        except Exception as e:
+            st.sidebar.error(f"❌ Client Error: {e}")
     else:
-        st.sidebar.info("Enter an API Key to enable the AI Teacher.")
-
-    st.title("📚 PYQ Student Dashboard")
-    st.write("Browse previous year questions by subject, class, and topic.")
+        st.sidebar.info("🔑 Enter API Key to enable AI")
 
     all_questions = load_and_flatten_data()
-    
+    st.sidebar.write(f"📚 Questions in DB: {len(all_questions)}")
+
+    st.title("🎯 Board Exam PYQ Assistant")
+    st.write("Solve previous year questions and get AI-powered insights!")
+
     if not all_questions:
+        st.warning("⚠️ No questions found in the database. Please check database.json.")
         return
 
     # Phase 5: Progress Dashboard
@@ -307,7 +312,7 @@ def main():
                         cheat_prompt = f"Create a 3-point cheat sheet for the Class 10 Science topic '{q['Topic']}'. Focus STRICTLY on the 3 most important concepts that are guaranteed to appear in board exams. Use short bullet points and bold key terms."
                         try:
                             response = client.chat.completions.create(
-                                model="grok-2-latest",
+                                model="grok-beta",
                                 messages=[{"role": "user", "content": cheat_prompt}]
                             )
                             st.info(response.choices[0].message.content)
