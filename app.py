@@ -209,8 +209,8 @@ def main():
                 models_data = client.models.list().data
                 available_ids = [m.id for m in models_data]
                 st.sidebar.write(f"📋 Available Models: {', '.join(available_ids)}")
-            except:
-                pass
+            except Exception as model_err:
+                st.sidebar.error(f"⚠️ Could not list models: {model_err}")
         except Exception as e:
             st.sidebar.error(f"❌ AI Error: {e}")
     else:
