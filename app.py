@@ -201,6 +201,13 @@ def main():
         try:
             client = OpenAI(api_key=api_key, base_url="https://api.x.ai/v1")
             st.sidebar.success("✅ AI Teacher Active")
+            # Debug: Show available models to find the correct one
+            try:
+                models_data = client.models.list().data
+                available_ids = [m.id for m in models_data]
+                st.sidebar.write(f"📋 Available Models: {', '.join(available_ids)}")
+            except:
+                pass
         except Exception as e:
             st.sidebar.error(f"❌ AI Error: {e}")
     else:
