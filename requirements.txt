@@ -1,9 +1,5 @@
 streamlit
-<<<<<<< HEAD
 openai
-=======
-google-generativeai
->>>>>>> 55cc56c5996626654ebe9fbbf3819f18597da6f1
 fpdf2
 streamlit-mic-recorder
 PyMuPDF
