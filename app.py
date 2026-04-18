@@ -4,7 +4,7 @@ from openai import OpenAI
 from fpdf import FPDF
 try:
     from streamlit_mic_recorder import speech_to_text
-    ENABLE_VOICE = True
+    ENABLE_VOICE = False # Disabled due to Streamlit Cloud compatibility issues
 except ImportError:
     ENABLE_VOICE = False
 import io
@@ -29,12 +29,16 @@ def generate_pdf(questions, topic_name):
     pdf.ln(10)
     
     pdf.set_font("helvetica", size=12)
+    def clean_text(text):
+        # Replace non-latin characters that crash fpdf's default fonts
+        return str(text).encode('latin-1', 'replace').decode('latin-1')
+
     for idx, q in enumerate(questions[:10]):
         pdf.set_font("helvetica", "B", 12)
-        pdf.multi_cell(0, 8, f"Q{idx + 1}. {q['question_text']}")
+        pdf.multi_cell(0, 8, clean_text(f"Q{idx + 1}. {q['question_text']}"))
         pdf.set_font("helvetica", size=12)
         for key, val in q['options'].items():
-            pdf.multi_cell(0, 6, f"  {key}) {val}")
+            pdf.multi_cell(0, 6, clean_text(f"  {key}) {val}"))
         pdf.ln(5)
     
     return pdf.output()
