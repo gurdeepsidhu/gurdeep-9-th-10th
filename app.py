@@ -179,21 +179,19 @@ def main():
     # Check if API Key is stored in Streamlit Cloud Secrets
     api_key = st.secrets.get("GROK_API_KEY")
     
+    # Fallback for non-coder setup
     if not api_key:
-        api_key = st.sidebar.text_input("Enter Grok (xAI) API Key", type="password")
+        api_key = "xai-JiehwP2pZU1ziMEJsOMAYrejYUU7YlYlO3SwgeASJ9ONH21LB2y4xtIzlp6x30nFwrdcTsuuw5bJVTi9"
     
     client = None
     if api_key:
         try:
             client = OpenAI(api_key=api_key, base_url="https://api.x.ai/v1")
-            if "GROK_API_KEY" in st.secrets:
-                st.sidebar.success("✅ AI Active (from Secrets)")
-            else:
-                st.sidebar.success("✅ AI Active (Manual Key)")
+            st.sidebar.success("✅ AI Teacher Active")
         except Exception as e:
-            st.sidebar.error(f"❌ Client Error: {e}")
+            st.sidebar.error(f"❌ AI Error: {e}")
     else:
-        st.sidebar.info("🔑 Enter API Key in Sidebar or Streamlit Secrets to enable AI")
+        st.sidebar.info("🔑 AI is currently offline.")
 
     all_questions = load_and_flatten_data()
     st.sidebar.write(f"📚 Questions in DB: {len(all_questions)}")
