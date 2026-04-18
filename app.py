@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-import google.generativeai as genai
+from openai import OpenAI
 from fpdf import FPDF
 try:
     from streamlit_mic_recorder import speech_to_text
@@ -39,7 +39,7 @@ def generate_pdf(questions, topic_name):
     
     return pdf.output()
 
-def get_gap_analysis_warning(topic):
+def get_gap_analysis_warning(client, topic):
     prompt = f"""
 System Persona: You are an experienced, caring examiner and teacher for 9th-10th grade. 
 The student has just gotten multiple questions wrong in the topic: '{topic}'.
@@ -47,9 +47,11 @@ Provide a short, encouraging "Pro-tip" or warning in friendly Hinglish (e.g. sta
 Identify what fundamental concept they might be missing based on the topic '{topic}', and give them a quick tip to revise it. Keep it under 3-4 sentences.
 """
     try:
-        model = genai.GenerativeModel('gemini-1.5-flash')
-        response = model.generate_content(prompt)
-        return response.text
+        response = client.chat.completions.create(
+            model="grok-2-latest",
+            messages=[{"role": "user", "content": prompt}]
+        )
+        return response.choices[0].message.content
     except Exception as e:
         return f"Error connecting to AI: {e}"
 
@@ -64,7 +66,7 @@ ANALOGY_LIBRARY = {
     "exothermic": "A hand warmer releasing heat to its surroundings",
 }
 
-def get_ai_explanation(question, options, user_answer, correct_answer, is_correct, topic=""):
+def get_ai_explanation(client, question, options, user_answer, correct_answer, is_correct, topic=""):
     if is_correct:
         insight_type = "Advanced Insight"
     else:
@@ -97,9 +99,11 @@ Task for {insight_type}:
    - Analogy: (Use a daily life example to explain the core concept. { 'Follow the CRITICAL RULE above for the specific analogy.' if specific_analogy_instruction else 'Invent a highly relatable analogy like traffic or kitchen recipes.' })
 """
     try:
-        model = genai.GenerativeModel('gemini-1.5-flash')
-        response = model.generate_content(prompt)
-        return response.text
+        response = client.chat.completions.create(
+            model="grok-2-latest",
+            messages=[{"role": "user", "content": prompt}]
+        )
+        return response.choices[0].message.content
     except Exception as e:
         return f"Error connecting to AI: {e}"
 
@@ -166,10 +170,12 @@ def load_and_flatten_data():
 def main():
     init_session_state()
     st.sidebar.title("⚙️ AI Settings")
-    api_key = st.sidebar.text_input("Enter Gemini API Key", type="password")
+    api_key = st.sidebar.text_input("Enter Grok (xAI) API Key", type="password")
+    
+    client = None
     if api_key:
-        genai.configure(api_key=api_key)
-        st.sidebar.success("API Key configured! AI Teacher is active.")
+        client = OpenAI(api_key=api_key, base_url="https://api.x.ai/v1")
+        st.sidebar.success("API Key configured! Grok AI Teacher is active.")
     else:
         st.sidebar.info("Enter an API Key to enable the AI Teacher.")
 
@@ -288,13 +294,15 @@ def main():
             st.markdown(html_card, unsafe_allow_html=True)
             # Phase 7: Cheat Sheet Feature
             if st.button(f"📝 {q['Topic']} Cheat Sheet", key=f"cheat_{q['question_id']}"):
-                if api_key:
+                if client:
                     with st.spinner(f"Generating Cheat Sheet for {q['Topic']}..."):
                         cheat_prompt = f"Create a 3-point cheat sheet for the Class 10 Science topic '{q['Topic']}'. Focus STRICTLY on the 3 most important concepts that are guaranteed to appear in board exams. Use short bullet points and bold key terms."
                         try:
-                            model = genai.GenerativeModel('gemini-1.5-flash')
-                            resp = model.generate_content(cheat_prompt)
-                            st.info(resp.text)
+                            response = client.chat.completions.create(
+                                model="grok-2-latest",
+                                messages=[{"role": "user", "content": cheat_prompt}]
+                            )
+                            st.info(response.choices[0].message.content)
                         except Exception as e:
                             st.error(f"Error: {e}")
                 else:
@@ -344,16 +352,17 @@ def main():
                         streak = st.session_state.topic_streak.get(q['Topic'], 0)
                         if streak >= 3:
                             st.warning("Don't worry! Let's simplify this topic before we move forward.")
-                            if api_key:
+                            if client:
                                 with st.spinner("AI Teacher is generating a 1-minute summary..."):
-                                    warning = get_gap_analysis_warning(q['Topic'])
+                                    warning = get_gap_analysis_warning(client, q['Topic'])
                                     st.info(f"💡 **1-Minute Summary:**\n\n{warning}")
                     
                     # Teacher's Insight Button appears ONLY after submission
                     if st.button("Teacher's Insight", key=f"insight_{q['question_id']}"):
-                        if api_key:
+                        if client:
                             with st.spinner("AI Teacher is analyzing your answer..."):
                                 explanation = get_ai_explanation(
+                                    client,
                                     q['question_text'], 
                                     q['options'], 
                                     saved_choice, 
