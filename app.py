@@ -22,26 +22,27 @@ def init_session_state():
         st.session_state.answered_qs = set()
 
 def generate_pdf(questions, topic_name):
-    pdf = FPDF()
-    pdf.add_page()
-    pdf.set_font("helvetica", "B", 16)
-    pdf.cell(0, 10, f"Mock Test: {topic_name}", ln=True, align="C")
-    pdf.ln(10)
-    
-    pdf.set_font("helvetica", size=12)
-    def clean_text(text):
-        # Replace non-latin characters that crash fpdf's default fonts
-        return str(text).encode('latin-1', 'replace').decode('latin-1')
+    try:
+        pdf = FPDF()
+        pdf.add_page()
+        pdf.set_font("helvetica", "B", 16)
+        pdf.cell(190, 10, f"Mock Test: {topic_name}", ln=True, align="C")
+        pdf.ln(10)
+        
+        def clean_text(text):
+            return str(text).encode('latin-1', 'replace').decode('latin-1')
 
-    for idx, q in enumerate(questions[:10]):
-        pdf.set_font("helvetica", "B", 12)
-        pdf.multi_cell(0, 8, clean_text(f"Q{idx + 1}. {q['question_text']}"))
-        pdf.set_font("helvetica", size=12)
-        for key, val in q['options'].items():
-            pdf.multi_cell(0, 6, clean_text(f"  {key}) {val}"))
-        pdf.ln(5)
-    
-    return pdf.output()
+        for idx, q in enumerate(questions[:10]):
+            pdf.set_font("helvetica", "B", 12)
+            pdf.write(8, clean_text(f"Q{idx + 1}. {q['question_text']}\n"))
+            pdf.set_font("helvetica", size=12)
+            for key, val in q['options'].items():
+                pdf.write(6, clean_text(f"  {key}) {val}\n"))
+            pdf.ln(5)
+        
+        return pdf.output()
+    except Exception as e:
+        return None
 
 def get_gap_analysis_warning(client, topic):
     prompt = f"""
@@ -268,12 +269,15 @@ def main():
     if filtered_questions:
         topic_name = search_topic if search_topic else "Mixed Topics"
         pdf_bytes = generate_pdf(filtered_questions, topic_name)
-        st.download_button(
-            label="📄 Download Mock Test (PDF)",
-            data=bytes(pdf_bytes),
-            file_name=f"MockTest_{topic_name}.pdf",
-            mime="application/pdf"
-        )
+        if pdf_bytes:
+            st.download_button(
+                label="📄 Download Mock Test (PDF)",
+                data=bytes(pdf_bytes),
+                file_name=f"MockTest_{topic_name}.pdf",
+                mime="application/pdf"
+            )
+        else:
+            st.warning("⚠️ PDF generation currently unavailable for these questions.")
 
     for idx, q in enumerate(filtered_questions):
         # Determine badge class for difficulty
