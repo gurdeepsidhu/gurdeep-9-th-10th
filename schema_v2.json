@@ -1,0 +1,68 @@
+[
+  {
+    "Metadata": {
+      "Subject": "Science",
+      "Chapter": "Chemical Reactions and Equations",
+      "Topic": "Balancing Equations",
+      "Year": "CBSE 2020",
+      "Difficulty": "Medium"
+    },
+    "Content": {
+      "Question_Text": "Which of the following is a balanced chemical equation?",
+      "Options": {
+        "A": "Mg + O2 -> MgO",
+        "B": "2Mg + O2 -> 2MgO",
+        "C": "Mg + 2O2 -> MgO2",
+        "D": "2Mg + O -> 2MgO"
+      },
+      "Correct_Answer": "B"
+    },
+    "Reasoning_Map": {
+      "Examiner_Insight": "Check the number of atoms for each element on both sides individually before confirming; never change subscripts, only coefficients."
+    }
+  },
+  {
+    "Metadata": {
+      "Subject": "Science",
+      "Chapter": "Chemical Reactions and Equations",
+      "Topic": "Types of Chemical Reactions",
+      "Year": "CBSE 2021",
+      "Difficulty": "Hard"
+    },
+    "Content": {
+      "Question_Text": "A substance 'X' is used in white-washing and is obtained by heating limestone in the absence of air. Identify 'X'.",
+      "Options": {
+        "A": "Calcium carbonate",
+        "B": "Calcium hydroxide",
+        "C": "Calcium oxide",
+        "D": "Calcium chloride"
+      },
+      "Correct_Answer": "C"
+    },
+    "Reasoning_Map": {
+      "Examiner_Insight": "Students frequently confuse Quicklime (CaO) with Slaked lime (Ca(OH)2); remember that heating limestone (CaCO3) gives CaO."
+    }
+  },
+  {
+    "Metadata": {
+      "Subject": "Science",
+      "Chapter": "Chemical Reactions and Equations",
+      "Topic": "Redox Reactions",
+      "Year": "CBSE 2018",
+      "Difficulty": "Medium"
+    },
+    "Content": {
+      "Question_Text": "In the reaction CuO + H2 -> Cu + H2O, the substance oxidized is:",
+      "Options": {
+        "A": "CuO",
+        "B": "H2",
+        "C": "Cu",
+        "D": "H2O"
+      },
+      "Correct_Answer": "B"
+    },
+    "Reasoning_Map": {
+      "Examiner_Insight": "The substance oxidized is the one that *gains* oxygen; always pick your answer from the reactants side, never the products."
+    }
+  }
+]

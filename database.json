@@ -1,0 +1,186 @@
+{
+    "Science": {
+        "Class 10": {
+            "Light - Reflection and Refraction": {
+                "Refraction": {
+                    "CBSE 2018": {
+                        "Easy": [
+                            {
+                                "question_id": "SCI-PHY-REF-2018-E-01",
+                                "question_text": "When a ray of light travels from a rarer to a denser medium, it:",
+                                "options": {
+                                    "A": "Bends towards the normal",
+                                    "B": "Bends away from the normal",
+                                    "C": "Goes straight without deviation",
+                                    "D": "Reflects back"
+                                },
+                                "correct_answer": "A",
+                                "explanations": {
+                                    "basic": "Light slows down when entering a denser medium, causing it to bend towards the normal line.",
+                                    "advanced": "According to Snell's law (n1*sin(i) = n2*sin(r)), if n2 > n1 (rarer to denser), then sin(r) must be less than sin(i), meaning angle r is less than angle i, so it bends towards the normal."
+                                }
+                            }
+                        ],
+                        "Medium": [
+                            {
+                                "question_id": "SCI-PHY-REF-2018-M-02",
+                                "question_text": "The refractive index of water is 1.33 and that of glass is 1.5. If light travels from water to glass, it will:",
+                                "options": {
+                                    "A": "Bend towards the normal",
+                                    "B": "Bend away from the normal",
+                                    "C": "Remain undeviated",
+                                    "D": "Undergo total internal reflection"
+                                },
+                                "correct_answer": "A",
+                                "explanations": {
+                                    "basic": "Glass (1.5) has a higher refractive index than water (1.33), so glass is optically denser. Light traveling from rarer (water) to denser (glass) bends towards the normal.",
+                                    "advanced": "The relative refractive index of glass with respect to water is n_gw = n_g / n_w = 1.5 / 1.33 \u2248 1.13. Since n_gw > 1, the ray bends towards the normal."
+                                }
+                            }
+                        ],
+                        "Hard": [
+                            {
+                                "question_id": "SCI-PHY-REF-2018-H-03",
+                                "question_text": "A convex lens forms a real and inverted image of the same size as the object when the object is placed:",
+                                "options": {
+                                    "A": "At F",
+                                    "B": "Between F and 2F",
+                                    "C": "At 2F",
+                                    "D": "Beyond 2F"
+                                },
+                                "correct_answer": "C",
+                                "explanations": {
+                                    "basic": "For a convex lens, an object placed at 2F (twice the focal length) produces a real, inverted image exactly at 2F on the other side, and of the same size.",
+                                    "advanced": "Using the lens formula 1/v - 1/u = 1/f. If u = -2f, then 1/v - (1/-2f) = 1/f => 1/v = 1/f - 1/2f = 1/2f. So v = +2f. Magnification m = v/u = (2f)/(-2f) = -1. The magnitude 1 means same size, and the negative sign means inverted."
+                                }
+                            }
+                        ]
+                    },
+                    "CBSE 2019": {
+                        "Easy": [
+                            {
+                                "question_id": "SCI-PHY-REF-2019-E-04",
+                                "question_text": "Twinkling of stars is primarily due to:",
+                                "options": {
+                                    "A": "Atmospheric reflection",
+                                    "B": "Atmospheric refraction",
+                                    "C": "Dispersion of light",
+                                    "D": "Scattering of light"
+                                },
+                                "correct_answer": "B",
+                                "explanations": {
+                                    "basic": "As starlight enters the Earth's atmosphere, it undergoes continuous refraction because the atmosphere has layers of different optical densities.",
+                                    "advanced": "The Earth's atmosphere has varying physical conditions (temperature and density), which continuously change its refractive index. The starlight path fluctuates, causing the apparent position of the star to change slightly and the amount of starlight entering the eye to flicker, which we perceive as twinkling."
+                                }
+                            }
+                        ],
+                        "Medium": [
+                            {
+                                "question_id": "SCI-PHY-REF-2019-M-05",
+                                "question_text": "The law of refraction stating that the ratio of sine of angle of incidence to the sine of angle of refraction is constant is called:",
+                                "options": {
+                                    "A": "Newton's law",
+                                    "B": "Snell's law",
+                                    "C": "Faraday's law",
+                                    "D": "Ohm's law"
+                                },
+                                "correct_answer": "B",
+                                "explanations": {
+                                    "basic": "This relationship (sin i / sin r = constant) was discovered by Willebrord Snellius and is known as Snell's law of refraction.",
+                                    "advanced": "Snell's Law can be mathematically expressed as n1 * sin(\u03b81) = n2 * sin(\u03b82). The constant in the basic formulation (sin i / sin r = n) is the relative refractive index of the second medium with respect to the first."
+                                }
+                            },
+                            {
+                                "question_id": "SCI-PHY-REF-2019-M-06",
+                                "question_text": "Which of the following materials cannot be used to make a lens?",
+                                "options": {
+                                    "A": "Water",
+                                    "B": "Glass",
+                                    "C": "Plastic",
+                                    "D": "Clay"
+                                },
+                                "correct_answer": "D",
+                                "explanations": {
+                                    "basic": "A lens must be made of a transparent material so that light can pass through it and refract. Clay is opaque.",
+                                    "advanced": "A functional lens requires a material with a consistent refractive index that allows high transmission of visible light. Clay is non-homogeneous and opaque, meaning it completely absorbs or reflects visible light, preventing any controlled refraction."
+                                }
+                            }
+                        ]
+                    },
+                    "CBSE 2020": {
+                        "Easy": [
+                            {
+                                "question_id": "SCI-PHY-REF-2020-E-07",
+                                "question_text": "If the magnification produced by a lens has a negative value, the image is:",
+                                "options": {
+                                    "A": "Virtual and erect",
+                                    "B": "Real and inverted",
+                                    "C": "Real and erect",
+                                    "D": "Virtual and inverted"
+                                },
+                                "correct_answer": "B",
+                                "explanations": {
+                                    "basic": "A negative magnification means the image is flipped upside down (inverted). Inverted images formed by lenses are always real images.",
+                                    "advanced": "Magnification m = h'/h. Since the object height h is conventionally taken as positive (above the principal axis), a negative m implies the image height h' is negative (below the principal axis). For lenses, images formed below the principal axis are real and inverted."
+                                }
+                            }
+                        ],
+                        "Hard": [
+                            {
+                                "question_id": "SCI-PHY-REF-2020-H-08",
+                                "question_text": "The power of a lens is -2.0 D. The lens is:",
+                                "options": {
+                                    "A": "Convex lens of focal length 50 cm",
+                                    "B": "Concave lens of focal length 50 cm",
+                                    "C": "Convex lens of focal length 20 cm",
+                                    "D": "Concave lens of focal length 20 cm"
+                                },
+                                "correct_answer": "B",
+                                "explanations": {
+                                    "basic": "Power is negative, so it's a concave lens. Focal length f = 1/Power. f = 1/-2.0 = -0.5 meters. 0.5 meters is 50 cm.",
+                                    "advanced": "Power P = 1/f (in meters). P = -2.0 D means f = -0.5 m = -50 cm. The negative sign conventionally denotes a diverging (concave) lens. This lens would be prescribed for someone suffering from myopia (near-sightedness)."
+                                }
+                            }
+                        ]
+                    },
+                    "CBSE 2021": {
+                        "Medium": [
+                            {
+                                "question_id": "SCI-PHY-REF-2021-M-09",
+                                "question_text": "An object is placed at 20 cm from a convex lens of focal length 10 cm. The image is formed at:",
+                                "options": {
+                                    "A": "10 cm",
+                                    "B": "20 cm",
+                                    "C": "30 cm",
+                                    "D": "Infinity"
+                                },
+                                "correct_answer": "B",
+                                "explanations": {
+                                    "basic": "The focal length is 10 cm, so 20 cm is exactly twice the focal length (2F). For a convex lens, an object at 2F forms an image at 2F on the other side, which is also 20 cm away.",
+                                    "advanced": "Applying 1/v - 1/u = 1/f with u = -20 cm, f = +10 cm. 1/v - (1/-20) = 1/10 => 1/v + 1/20 = 1/10 => 1/v = 1/10 - 1/20 = 1/20. Therefore v = +20 cm, proving the image forms at 20 cm on the opposite side."
+                                }
+                            }
+                        ],
+                        "Hard": [
+                            {
+                                "question_id": "SCI-PHY-REF-2021-H-10",
+                                "question_text": "The speed of light in a transparent medium is 2 x 10^8 m/s. The refractive index of the medium is (speed of light in vacuum = 3 x 10^8 m/s):",
+                                "options": {
+                                    "A": "1.5",
+                                    "B": "0.66",
+                                    "C": "1.33",
+                                    "D": "2.0"
+                                },
+                                "correct_answer": "A",
+                                "explanations": {
+                                    "basic": "Refractive index = (Speed of light in vacuum) / (Speed of light in medium). So, (3 x 10^8) / (2 x 10^8) = 3/2 = 1.5.",
+                                    "advanced": "Absolute refractive index (n) measures how much a medium slows down light relative to a vacuum. n = c/v. Here n = (3.0 * 10^8 m/s) / (2.0 * 10^8 m/s) = 1.5. This is typically the refractive index of glass."
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

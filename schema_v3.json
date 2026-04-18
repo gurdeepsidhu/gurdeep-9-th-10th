@@ -1,0 +1,77 @@
+[
+  {
+    "question_id": "PHY-10-ELE-001",
+    "topic": "Electricity",
+    "year": "2019 CBSE",
+    "difficulty": "Easy",
+    "question_text": "The SI unit of electric current is:",
+    "options": {
+      "A": "Ohm",
+      "B": "Volt",
+      "C": "Ampere",
+      "D": "Watt"
+    },
+    "correct_answer": "C",
+    "teacher_hint": "Remember the fundamental quantities: Current is measured by an Ammeter, which gives readings in Amperes."
+  },
+  {
+    "question_id": "PHY-10-ELE-002",
+    "topic": "Electricity",
+    "year": "2020 CBSE",
+    "difficulty": "Medium",
+    "question_text": "Calculate the equivalent resistance when two resistors of 2 ohms and 3 ohms are connected in series.",
+    "options": {
+      "A": "1.2 ohms",
+      "B": "5 ohms",
+      "C": "6 ohms",
+      "D": "1 ohm"
+    },
+    "correct_answer": "B",
+    "teacher_hint": "In a series circuit, you simply add the resistances together algebraically: R_total = R1 + R2."
+  },
+  {
+    "question_id": "PHY-10-ELE-003",
+    "topic": "Electricity",
+    "year": "2018 CBSE",
+    "difficulty": "Hard",
+    "question_text": "An electric bulb is rated 220 V and 100 W. When it is operated on 110 V, the power consumed will be:",
+    "options": {
+      "A": "100 W",
+      "B": "75 W",
+      "C": "50 W",
+      "D": "25 W"
+    },
+    "correct_answer": "D",
+    "teacher_hint": "First, find the fixed resistance of the bulb using R = V^2/P. Then, use that fixed resistance with the new voltage (P' = V'^2/R) to find the new power."
+  },
+  {
+    "question_id": "PHY-10-REF-001",
+    "topic": "Refraction",
+    "year": "2021 CBSE",
+    "difficulty": "Medium",
+    "question_text": "The power of a lens is -4.0 D. What is the nature and focal length of the lens?",
+    "options": {
+      "A": "Convex lens, 25 cm",
+      "B": "Concave lens, -25 cm",
+      "C": "Convex lens, 40 cm",
+      "D": "Concave lens, -40 cm"
+    },
+    "correct_answer": "B",
+    "teacher_hint": "A negative power always indicates a concave (diverging) lens. Use f = 1/P to find the focal length in meters."
+  },
+  {
+    "question_id": "PHY-10-MAG-001",
+    "topic": "Magnetic Effects of Electric Current",
+    "year": "2019 CBSE",
+    "difficulty": "Easy",
+    "question_text": "Inside a bar magnet, the magnetic field lines move from:",
+    "options": {
+      "A": "North pole to South pole",
+      "B": "South pole to North pole",
+      "C": "Center to the poles",
+      "D": "There are no field lines inside"
+    },
+    "correct_answer": "B",
+    "teacher_hint": "Field lines form continuous loops. Outside they go North to South, so inside they must complete the loop by going South to North."
+  }
+]
