@@ -175,17 +175,25 @@ def load_and_flatten_data():
 def main():
     init_session_state()
     st.sidebar.title("⚙️ AI Settings")
-    api_key = st.sidebar.text_input("Enter Grok (xAI) API Key", type="password")
+    
+    # Check if API Key is stored in Streamlit Cloud Secrets
+    api_key = st.secrets.get("GROK_API_KEY")
+    
+    if not api_key:
+        api_key = st.sidebar.text_input("Enter Grok (xAI) API Key", type="password")
     
     client = None
     if api_key:
         try:
             client = OpenAI(api_key=api_key, base_url="https://api.x.ai/v1")
-            st.sidebar.success("✅ AI Active (Grok)")
+            if "GROK_API_KEY" in st.secrets:
+                st.sidebar.success("✅ AI Active (from Secrets)")
+            else:
+                st.sidebar.success("✅ AI Active (Manual Key)")
         except Exception as e:
             st.sidebar.error(f"❌ Client Error: {e}")
     else:
-        st.sidebar.info("🔑 Enter API Key to enable AI")
+        st.sidebar.info("🔑 Enter API Key in Sidebar or Streamlit Secrets to enable AI")
 
     all_questions = load_and_flatten_data()
     st.sidebar.write(f"📚 Questions in DB: {len(all_questions)}")
