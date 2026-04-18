@@ -193,7 +193,10 @@ def main():
     # Check if API Key is stored in Streamlit Cloud Secrets
     api_key = st.secrets.get("GROK_API_KEY")
     
-    if not api_key:
+    if api_key:
+        st.sidebar.success(f"✅ Key loaded! (...{api_key[-4:]})")
+    else:
+        st.sidebar.warning("⚠️ No Key found in Secrets!")
         api_key = st.sidebar.text_input("Enter Grok (xAI) API Key", type="password")
     
     client = None
