@@ -53,7 +53,7 @@ Identify what fundamental concept they might be missing based on the topic '{top
 """
     try:
         response = client.chat.completions.create(
-            model="grok-beta",
+            model="grok-2",
             messages=[{"role": "user", "content": prompt}]
         )
         return response.choices[0].message.content
@@ -105,7 +105,7 @@ Task for {insight_type}:
 """
     try:
         response = client.chat.completions.create(
-            model="grok-beta",
+            model="grok-2",
             messages=[{"role": "user", "content": prompt}]
         )
         return response.choices[0].message.content
@@ -318,7 +318,7 @@ def main():
                         cheat_prompt = f"Create a 3-point cheat sheet for the Class 10 Science topic '{q['Topic']}'. Focus STRICTLY on the 3 most important concepts that are guaranteed to appear in board exams. Use short bullet points and bold key terms."
                         try:
                             response = client.chat.completions.create(
-                                model="grok-beta",
+                                model="grok-2",
                                 messages=[{"role": "user", "content": cheat_prompt}]
                             )
                             st.info(response.choices[0].message.content)
