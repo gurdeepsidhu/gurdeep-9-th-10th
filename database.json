@@ -239,7 +239,81 @@
                     "chapter": "Electricity"
                 }
             ],
-            "Board Mix": [
+            "Chemical Reactions and Equations": [
+                {
+                    "question_id": "SCI-CHM-REA-2023-M-13",
+                    "question_text": "When calcium oxide reacts vigorously with water to form calcium hydroxide, it is an example of:",
+                    "options": {
+                        "A": "Combination reaction",
+                        "B": "Decomposition reaction",
+                        "C": "Displacement reaction",
+                        "D": "Double displacement reaction"
+                    },
+                    "correct_answer": "A",
+                    "explanations": {
+                        "basic": "Two reactants (CaO and H2O) combine to form a single product [Ca(OH)2], which is a combination reaction.",
+                        "advanced": "CaO(s) + H2O(l) → Ca(OH)2(aq) + Heat. This is also an exothermic reaction as a large amount of heat is released."
+                    },
+                    "year": "CBSE 2023",
+                    "difficulty": "Medium",
+                    "chapter": "Chemical Reactions and Equations"
+                },
+                {
+                    "question_id": "SCI-CHM-CRE-2023-E-19",
+                    "question_text": "Which of the following is a physical change?",
+                    "options": {
+                        "A": "Burning of wood",
+                        "B": "Melting of ice",
+                        "C": "Rusting of iron",
+                        "D": "Cooking of food"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "Melting of ice is a physical change because only the state of water changes (solid to liquid), and no new chemical substance is formed.",
+                        "advanced": "Physical changes involve changes in physical properties like state, shape, or size without altering the molecular composition. Burning, rusting, and cooking are chemical changes as they involve chemical reactions and formation of new substances."
+                    },
+                    "year": "CBSE 2023",
+                    "difficulty": "Easy",
+                    "chapter": "Chemical Reactions and Equations"
+                },
+                {
+                    "question_id": "SCI-CHM-CRE-2022-M-20",
+                    "question_text": "The brown gas evolved during the thermal decomposition of lead nitrate is:",
+                    "options": {
+                        "A": "Oxygen",
+                        "B": "Nitrogen",
+                        "C": "Nitrogen dioxide",
+                        "D": "Nitrogen monoxide"
+                    },
+                    "correct_answer": "C",
+                    "explanations": {
+                        "basic": "When lead nitrate is heated, it breaks down and releases nitrogen dioxide, which is a reddish-brown gas.",
+                        "advanced": "2Pb(NO3)2(s) → 2PbO(s) + 4NO2(g) + O2(g). The NO2 gas is responsible for the characteristic brown fumes observed during this decomposition reaction."
+                    },
+                    "year": "CBSE 2022",
+                    "difficulty": "Medium",
+                    "chapter": "Chemical Reactions and Equations"
+                },
+                {
+                    "question_id": "SCI-CHM-CRE-2021-H-21",
+                    "question_text": "A student adds iron nails to a solution of copper sulphate. After some time, the blue color of the solution fades and a reddish-brown deposit is seen. This is a:",
+                    "options": {
+                        "A": "Combination reaction",
+                        "B": "Decomposition reaction",
+                        "C": "Displacement reaction",
+                        "D": "Double displacement reaction"
+                    },
+                    "correct_answer": "C",
+                    "explanations": {
+                        "basic": "Iron is more reactive than copper, so it displaces copper from the copper sulphate solution. This is a displacement reaction.",
+                        "advanced": "Fe(s) + CuSO4(aq) → FeSO4(aq) + Cu(s). The blue color of CuSO4 fades as green FeSO4 forms, and the reddish-brown deposit is the displaced copper metal."
+                    },
+                    "year": "CBSE 2021",
+                    "difficulty": "Hard",
+                    "chapter": "Chemical Reactions and Equations"
+                }
+            ],
+            "Acids, Bases and Salts": [
                 {
                     "question_id": "SCI-CHM-PH-2023-E-11",
                     "question_text": "The pH of a neutral solution at 25°C is:",
@@ -259,41 +333,61 @@
                     "chapter": "Acids, Bases and Salts"
                 },
                 {
-                    "question_id": "SCI-PHY-POW-2022-E-12",
-                    "question_text": "The SI unit of electric power is:",
+                    "question_id": "SCI-CHM-ABS-2023-E-22",
+                    "question_text": "When a drop of phenolphthalein is added to an acidic solution, the color of the solution becomes:",
                     "options": {
-                        "A": "Ampere",
-                        "B": "Volt",
-                        "C": "Watt",
-                        "D": "Ohm"
+                        "A": "Pink",
+                        "B": "Yellow",
+                        "C": "Colorless",
+                        "D": "Blue"
                     },
                     "correct_answer": "C",
                     "explanations": {
-                        "basic": "Power is the rate of doing work or consuming energy. Its SI unit is the Watt.",
-                        "advanced": "1 Watt = 1 Joule per second. In electrical terms, P = V * I, so 1 Watt = 1 Volt * 1 Ampere."
-                    },
-                    "year": "CBSE 2022",
-                    "difficulty": "Easy",
-                    "chapter": "Electricity"
-                },
-                {
-                    "question_id": "SCI-CHM-REA-2023-M-13",
-                    "question_text": "When calcium oxide reacts vigorously with water to form calcium hydroxide, it is an example of:",
-                    "options": {
-                        "A": "Combination reaction",
-                        "B": "Decomposition reaction",
-                        "C": "Displacement reaction",
-                        "D": "Double displacement reaction"
-                    },
-                    "correct_answer": "A",
-                    "explanations": {
-                        "basic": "Two reactants (CaO and H2O) combine to form a single product [Ca(OH)2], which is a combination reaction.",
-                        "advanced": "CaO(s) + H2O(l) → Ca(OH)2(aq) + Heat. This is also an exothermic reaction as a large amount of heat is released."
+                        "basic": "Phenolphthalein is a colorless indicator that stays colorless in acidic solutions but turns pink in basic solutions.",
+                        "advanced": "Phenolphthalein is a weak acid itself. In acidic environments (high H+ concentration), the equilibrium shifts towards the non-ionized colorless form."
                     },
                     "year": "CBSE 2023",
-                    "difficulty": "Medium",
-                    "chapter": "Chemical Reactions and Equations"
+                    "difficulty": "Easy",
+                    "chapter": "Acids, Bases and Salts"
                 },
+                {
+                    "question_id": "SCI-CHM-ABS-2022-M-23",
+                    "question_text": "The gas evolved when sodium carbonate reacts with dilute hydrochloric acid is:",
+                    "options": {
+                        "A": "Hydrogen",
+                        "B": "Oxygen",
+                        "C": "Carbon dioxide",
+                        "D": "Chlorine"
+                    },
+                    "correct_answer": "C",
+                    "explanations": {
+                        "basic": "Reacting a metal carbonate with an acid always produces carbon dioxide gas, which turns lime water milky.",
+                        "advanced": "Na2CO3(s) + 2HCl(aq) → 2NaCl(aq) + H2O(l) + CO2(g). The evolution of CO2 with brisk effervescence is a characteristic test for carbonates."
+                    },
+                    "year": "CBSE 2022",
+                    "difficulty": "Medium",
+                    "chapter": "Acids, Bases and Salts"
+                },
+                {
+                    "question_id": "SCI-CHM-ABS-2021-H-24",
+                    "question_text": "What is the chemical formula of Plaster of Paris?",
+                    "options": {
+                        "A": "CaSO4 · 2H2O",
+                        "B": "CaSO4 · 1/2H2O",
+                        "C": "CaSO4 · H2O",
+                        "D": "Na2CO3 · 10H2O"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "Plaster of Paris is calcium sulphate hemihydrate, meaning it has half a molecule of water for every calcium sulphate molecule.",
+                        "advanced": "Plaster of Paris (CaSO4 · 1/2H2O) is obtained by heating Gypsum (CaSO4 · 2H2O) at 373 K. It has the property of setting into a hard mass when mixed with water."
+                    },
+                    "year": "CBSE 2021",
+                    "difficulty": "Hard",
+                    "chapter": "Acids, Bases and Salts"
+                }
+            ],
+            "Board Mix": [
                 {
                     "question_id": "SCI-BIO-KID-2022-M-14",
                     "question_text": "The functional unit of the human kidney is called:",
