@@ -225,7 +225,7 @@ def main():
     st.sidebar.write(f"📚 Questions in DB: {len(all_questions)}")
 
     st.title("🎯 Board Exam PYQ Assistant")
-    st.error("🚀 GROQ MODE ACTIVE (FREE & FAST)")
+    st.error("🚀 GROQ MODE ACTIVE - VERSION 2.0")
     st.write("Solve previous year questions and get AI-powered insights!")
 
     if not all_questions:

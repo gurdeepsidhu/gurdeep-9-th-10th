@@ -1,9 +1,22 @@
 from openai import OpenAI
 import os
 
+import streamlit as st
+
+# Load API key from Streamlit secrets
+api_key = st.secrets.get("GROQ_API_KEY")
+
+if not api_key:
+    import os
+    api_key = os.environ.get("GROQ_API_KEY")
+
+if not api_key:
+    print("Error: GROQ_API_KEY not found in secrets or environment variables.")
+    exit()
+
 client = OpenAI(
-    api_key="xai-JiehwP2pZU1ziMEJsOMAYrejYUU7YlYlO3SwgeASJ9ONH21LB2y4xtIzlp6x30nFwrdcTsuuw5bJVTi9",
-    base_url="https://api.x.ai/v1"
+    api_key=api_key,
+    base_url="https://api.groq.com/openai/v1"
 )
 
 try:
