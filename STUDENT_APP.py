@@ -150,15 +150,91 @@ def main():
     st.set_page_config(page_title="PYQ Student Hub", layout="wide")
     init_session_state()
     
-    # CSS
+    # Premium UI CSS
     st.markdown("""
     <style>
-        .question-card { background: white; padding: 20px; border-radius: 10px; border: 1px solid #ddd; margin-bottom: 10px; }
-        .question-header { display: flex; justify-content: space-between; color: #666; font-size: 0.8em; margin-bottom: 10px; }
-        .badge { padding: 4px 8px; border-radius: 10px; font-weight: bold; }
-        .badge-easy { background: #d1e7dd; color: #0f5132; }
-        .badge-medium { background: #fff3cd; color: #664d03; }
-        .badge-hard { background: #f8d7da; color: #842029; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        /* General Styles */
+        html, body, [class*="css"] {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        .main {
+            background-color: #f8fafc;
+        }
+        
+        /* Card Styling */
+        .question-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .question-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Header & Badge Styling */
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #475569;
+            font-size: 0.85em;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+        
+        .badge {
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.7em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .badge-easy { background: #dcfce7; color: #166534; }
+        .badge-medium { background: #fef3c7; color: #92400e; }
+        .badge-hard { background: #fee2e2; color: #991b1b; }
+        
+        /* Sidebar Polish */
+        .sidebar .sidebar-content {
+            background-color: #1e293b;
+            color: white;
+        }
+        
+        /* Button Styling Overrides */
+        div.stButton > button {
+            background-color: #1e293b;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 20px;
+            border: none;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.2s;
+        }
+        
+        div.stButton > button:hover {
+            background-color: #0d9488; /* Teal */
+            color: white;
+            border: none;
+        }
+        
+        /* Info Boxes */
+        .stAlert {
+            border-radius: 12px;
+            border: none;
+        }
     </style>
     """, unsafe_allow_html=True)
 
