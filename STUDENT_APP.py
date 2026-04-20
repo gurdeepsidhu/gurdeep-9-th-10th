@@ -233,8 +233,44 @@ def main():
     all_questions = load_and_flatten_data()
     st.sidebar.write(f"📚 Questions in DB: {len(all_questions)}")
 
+    # Phase 8: Surprise Me! (Daily Challenge)
+    if st.sidebar.button("🎲 Surprise Me!"):
+        import random
+        st.session_state.surprise_q = random.choice(all_questions)
+        st.session_state.show_surprise = True
+
     st.title("🎯 Board Exam PYQ Assistant")
     st.write("Solve previous year questions and get AI-powered insights!")
+
+    # Display Surprise Question
+    if 'show_surprise' in st.session_state and st.session_state.show_surprise:
+        st.divider()
+        st.subheader("🌟 Daily Challenge: Surprise Question!")
+        q = st.session_state.surprise_q
+        
+        # Determine badge class for difficulty
+        diff = q['Difficulty'].lower()
+        badge_class = f"badge-{diff}" if diff in ['easy', 'medium', 'hard'] else "badge-medium"
+        
+        with st.container():
+            html_card = f"""
+            <div class="question-card" style="border: 2px solid #FFD700;">
+                <div class="question-header">
+                    <div><strong>{q['Year']}</strong> | {q['Chapter']} > {q['Topic']}</div>
+                    <div class="badge {badge_class}">{q['Difficulty']}</div>
+                </div>
+                <h5 style="color: #212529;">Q. {q['question_text']}</h5>
+                <ul style="list-style-type: none; padding-left: 0;">
+            """
+            for key, val in q['options'].items():
+                html_card += f"<li style='margin-bottom: 5px;'><strong>{key})</strong> {val}</li>"
+            html_card += "</ul></div>"
+            st.markdown(html_card, unsafe_allow_html=True)
+            
+            if st.button("Close Surprise Challenge"):
+                st.session_state.show_surprise = False
+                st.rerun()
+        st.divider()
 
     if not all_questions:
         st.warning("⚠️ No questions found in the database. Please check database.json.")
