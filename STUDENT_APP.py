@@ -374,7 +374,7 @@ def main():
                     st.info("💡 (AI offline. Add API key in sidebar to get dynamic cheat sheets!)")
 
             # Phase 4: AI Teacher Interaction
-            with st.expander("Show Answer & AI Explanation"):
+            with st.expander("💡 Click to Solve & Get AI Insight"):
                 submit_key = f"submitted_{q['question_id']}"
                 has_submitted = submit_key in st.session_state
                 
@@ -410,6 +410,7 @@ def main():
                     
                     if is_correct:
                         st.success(f"Correct! 🎉 The answer is {q['correct_answer']}.")
+                        st.balloons()
                     else:
                         st.error(f"Incorrect. 😔 The correct answer is {q['correct_answer']}.")
                         
