@@ -183,25 +183,26 @@ def load_and_flatten_data():
         st.error(f"Database not found at {db_path}! Please make sure database.json is in the same folder as this app.")
         return []
 
-    # Flatten the hierarchical JSON into a list of dictionaries for easy filtering
+    # Flatten the new hierarchical JSON (Class -> Subject -> Topic -> [Questions])
     questions = []
-    for subject, classes in db.items():
-        for cls, chapters in classes.items():
-            for chapter, topics in chapters.items():
-                for topic, years in topics.items():
-                    for year, difficulties in years.items():
-                        for difficulty, q_list in difficulties.items():
-                            for q in q_list:
-                                flat_q = {
-                                    'Subject': subject,
-                                    'Class': cls,
-                                    'Chapter': chapter,
-                                    'Topic': topic,
-                                    'Year': year,
-                                    'Difficulty': difficulty,
-                                    **q
-                                }
-                                questions.append(flat_q)
+    for cls, subjects in db.items():
+        for subject, topics in subjects.items():
+            for topic, q_list in topics.items():
+                for q in q_list:
+                    flat_q = {
+                        'Class': cls,
+                        'Subject': subject,
+                        'Topic': topic,
+                        'Chapter': q.get('chapter', 'Unknown'),
+                        'Year': q.get('year', 'Unknown'),
+                        'Difficulty': q.get('difficulty', 'Unknown'),
+                        'question_id': q.get('question_id'),
+                        'question_text': q.get('question_text'),
+                        'options': q.get('options'),
+                        'correct_answer': q.get('correct_answer'),
+                        'explanations': q.get('explanations', {})
+                    }
+                    questions.append(flat_q)
     return questions
 
 def main():
@@ -309,26 +310,27 @@ def main():
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        selected_class = st.selectbox("Select Class", ["All"] + classes)
+        classes = sorted(list(set(q['Class'] for q in all_questions)))
+        selected_class = st.selectbox("1. Select Class", ["All"] + classes)
     
     with col2:
-        selected_subject = st.selectbox("Select Subject", ["All"] + subjects)
+        if selected_class != "All":
+            subjects = sorted(list(set(q['Subject'] for q in all_questions if q['Class'] == selected_class)))
+        else:
+            subjects = sorted(list(set(q['Subject'] for q in all_questions)))
+        selected_subject = st.selectbox("2. Select Subject", ["All"] + subjects)
         
     with col3:
-        # Step 3: Voice Search (Pro Feature)
-        # To disable this feature, simply set ENABLE_VOICE to False or comment out the voice_search_text block.
-        voice_search_text = None
-        if ENABLE_VOICE:
-            voice_search_text = speech_to_text(
-                language='en', 
-                start_prompt="🎤 Click to Voice Search", 
-                stop_prompt="🛑 Recording... Click to Stop", 
-                just_once=True, 
-                key='STT'
-            )
-            
-        default_search = voice_search_text if voice_search_text else ""
-        search_topic = st.text_input("Search Topics or Chapters", value=default_search)
+        if selected_subject != "All":
+            topics = sorted(list(set(q['Topic'] for q in all_questions if q['Subject'] == selected_subject and (selected_class == "All" or q['Class'] == selected_class))))
+        else:
+            topics = []
+        
+        if topics:
+            selected_topic_filter = st.selectbox("3. Select Topic", ["All"] + topics)
+        else:
+            selected_topic_filter = "All"
+            st.info("Select a Subject to see Topics")
 
     st.divider()
 
@@ -340,11 +342,14 @@ def main():
         
     if selected_subject != "All":
         filtered_questions = [q for q in filtered_questions if q['Subject'] == selected_subject]
+
+    if selected_topic_filter != "All":
+        filtered_questions = [q for q in filtered_questions if q['Topic'] == selected_topic_filter]
         
-    # Combine text input and voice search logic seamlessly
-    final_search_query = search_topic
-    if final_search_query:
-        search_lower = final_search_query.lower()
+    # Search Topic or Chapter
+    search_topic = st.text_input("🔍 Search Topics or Chapters (Across all filters)")
+    if search_topic:
+        search_lower = search_topic.lower()
         filtered_questions = [
             q for q in filtered_questions 
             if search_lower in q['Topic'].lower() or search_lower in q['Chapter'].lower()
