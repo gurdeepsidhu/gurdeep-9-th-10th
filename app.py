@@ -110,6 +110,10 @@ Task for {insight_type}:
    - Keywords: (Give a specific tip like: "Answer mein 'Refraction' ke saath 'Optical Density' word ka hona must hai.")
    - Analogy: (Use a daily life example to explain the core concept. { 'Follow the CRITICAL RULE above for the specific analogy.' if specific_analogy_instruction else 'Invent a highly relatable analogy like traffic or kitchen recipes.' })
    - Diagram Suggestion: (Suggest a simple, relevant diagram or visual for this specific question. Format it strictly as: **[Diagram Suggestion: Description of the visual]**)
+
+4. Add a 'Quick Concept Recap' section:
+   - Provide 2-3 short bullet points explaining the core Science/Physics principle behind the question. 
+   - Focus strictly on the "Why" (e.g., if the question is about refraction, explain the change in speed of light or Snell's Law).
 """
     models_to_try = ["llama-3.3-70b-versatile", "llama-3.1-70b-versatile", "mixtral-8x7b-32768"]
     last_error = ""
