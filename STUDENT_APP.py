@@ -76,6 +76,7 @@ def get_ai_explanation(client, q, user_answer, is_correct):
 
 # --- UI Components ---
 def display_question_card(q, idx, client, mode, is_locked=False):
+    # Safe access to fields with defaults
     diff = q.get('Difficulty', q.get('difficulty', 'Medium')).lower()
     year = q.get('Year', q.get('year', 'Unknown'))
     chapter = q.get('Chapter', q.get('chapter', 'Unknown'))
@@ -154,87 +155,18 @@ def main():
     st.markdown("""
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        
-        /* General Styles */
-        html, body, [class*="css"] {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-        }
-        
-        .main {
-            background-color: #f8fafc;
-        }
-        
-        /* Card Styling */
-        .question-card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 16px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            margin-bottom: 25px;
-            transition: all 0.3s ease;
-        }
-        
-        .question-card:hover {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
-        }
-        
-        /* Header & Badge Styling */
-        .question-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #475569;
-            font-size: 0.85em;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #f1f5f9;
-            padding-bottom: 10px;
-        }
-        
-        .badge {
-            padding: 6px 14px;
-            border-radius: 9999px;
-            font-weight: 700;
-            font-size: 0.7em;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
+        html, body, [class*="css"] { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .main { background-color: #f8fafc; }
+        .question-card { background: #ffffff; padding: 30px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin-bottom: 25px; transition: all 0.3s ease; }
+        .question-card:hover { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); transform: translateY(-2px); }
+        .question-header { display: flex; justify-content: space-between; align-items: center; color: #475569; font-size: 0.85em; margin-bottom: 15px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; }
+        .badge { padding: 6px 14px; border-radius: 9999px; font-weight: 700; font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.05em; }
         .badge-easy { background: #dcfce7; color: #166534; }
         .badge-medium { background: #fef3c7; color: #92400e; }
         .badge-hard { background: #fee2e2; color: #991b1b; }
-        
-        /* Sidebar Polish */
-        .sidebar .sidebar-content {
-            background-color: #1e293b;
-            color: white;
-        }
-        
-        /* Button Styling Overrides */
-        div.stButton > button {
-            background-color: #1e293b;
-            color: white;
-            border-radius: 10px;
-            padding: 10px 20px;
-            border: none;
-            font-weight: 600;
-            width: 100%;
-            transition: all 0.2s;
-        }
-        
-        div.stButton > button:hover {
-            background-color: #0d9488; /* Teal */
-            color: white;
-            border: none;
-        }
-        
-        /* Info Boxes */
-        .stAlert {
-            border-radius: 12px;
-            border: none;
-        }
+        div.stButton > button { background-color: #1e293b; color: white; border-radius: 10px; padding: 10px 20px; border: none; font-weight: 600; width: 100%; transition: all 0.2s; }
+        div.stButton > button:hover { background-color: #0d9488; color: white; border: none; }
+        .stAlert { border-radius: 12px; border: none; }
     </style>
     """, unsafe_allow_html=True)
 
@@ -242,21 +174,47 @@ def main():
     client = get_ai_teacher_client()
     all_qs = load_and_flatten_data()
     
+    # --- Sidebar Navigation (Dynamic Drill-Down) ---
+    st.sidebar.divider()
+    st.sidebar.subheader("🎯 Smart Navigation")
+    
+    classes = sorted(list(set(q['Class'] for q in all_qs)))
+    sel_class = st.sidebar.selectbox("1. Choose Class", ["All"] + classes)
+    
+    filtered = all_qs
+    if sel_class != "All":
+        filtered = [q for q in filtered if q['Class'] == sel_class]
+        subjects = sorted(list(set(q['Subject'] for q in filtered)))
+        sel_subj = st.sidebar.selectbox("2. Choose Subject", ["All"] + subjects)
+        
+        if sel_subj != "All":
+            filtered = [q for q in filtered if q['Subject'] == sel_subj]
+            all_topics = sorted(list(set(q['Topic'] for q in filtered)))
+            has_subfolders = any(" > " in t for t in all_topics)
+            
+            if has_subfolders:
+                categories = sorted(list(set(t.split(" > ")[0] for t in all_topics)))
+                sel_cat = st.sidebar.selectbox("3. Choose Category", ["All"] + categories)
+                if sel_cat != "All":
+                    filtered = [q for q in filtered if q['Topic'].startswith(sel_cat)]
+                    sub_topics = sorted(list(set(q['Topic'] for q in filtered)))
+                    display_topics = [t.split(" > ")[-1] if " > " in t else t for t in sub_topics]
+                    sel_topic = st.sidebar.selectbox("4. Choose Chapter", ["All"] + display_topics)
+                    if sel_topic != "All":
+                        filtered = [q for q in filtered if q['Topic'].endswith(sel_topic)]
+            else:
+                sel_topic = st.sidebar.selectbox("3. Choose Chapter", ["All"] + all_topics)
+                if sel_topic != "All":
+                    filtered = [q for q in filtered if q['Topic'] == sel_topic]
+
+    acc = 0 if st.session_state.attempted == 0 else int(st.session_state.correct/st.session_state.attempted*100)
+    st.info(f"📊 Live Stats | Score: {st.session_state.correct} / {st.session_state.attempted} | Accuracy: {acc}%")
+
     tab1, tab2 = st.tabs(["Practice Mode", "Review Mode"])
     
     with tab1:
         st.title("🎯 Practice & Exam Zone")
         
-        # Sidebar Filters
-        classes = sorted(list(set(q['Class'] for q in all_qs)))
-        sel_class = st.sidebar.selectbox("Class", ["All"] + classes)
-        filtered = [q for q in all_qs if (sel_class == "All" or q['Class'] == sel_class)]
-        
-        subjects = sorted(list(set(q['Subject'] for q in filtered)))
-        sel_subj = st.sidebar.selectbox("Subject", ["All"] + subjects)
-        if sel_subj != "All": filtered = [q for q in filtered if q['Subject'] == sel_subj]
-        
-        # Timer UI
         col_ex1, col_ex2 = st.columns([2, 1])
         with col_ex1:
             if not st.session_state.exam_mode:
@@ -281,21 +239,18 @@ def main():
                     is_locked = True
                     st.warning("⚠️ TIME UP!")
             
-        acc = 0 if st.session_state.attempted == 0 else int(st.session_state.correct/st.session_state.attempted*100)
-        st.info(f"Score: {st.session_state.correct} / {st.session_state.attempted} (Accuracy: {acc}%)")
-        
         for idx, q in enumerate(filtered):
             display_question_card(q, idx, client, "practice", is_locked=is_locked)
 
     with tab2:
-        st.title("🧠 Review My Mistakes")
+        st.title("🧠 Your Personal Review Room")
         review_ids = st.session_state.bookmarks.union(st.session_state.mistake_qs)
-        review_qs = [q for q in all_qs if q['question_id'] in review_ids]
+        review_qs = [q for q in filtered if q['question_id'] in review_ids] # Use 'filtered' so mistakes are also filtered by subject
         
         if not review_qs:
-            st.success("No mistakes yet!")
+            st.success("No mistakes yet for this selection!")
         else:
-            if st.button("Clear Mistake History"):
+            if st.button("Clear Mistake History", key="clear_mistakes_v4"):
                 st.session_state.mistake_qs = set()
                 st.rerun()
             for idx, q in enumerate(review_qs):

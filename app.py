@@ -251,23 +251,67 @@ def main():
     
     tab1, tab2 = st.tabs(["Practice Mode", "Review Mode"])
     
+    # --- Sidebar Navigation (Dynamic Drill-Down) ---
+    st.sidebar.divider()
+    st.sidebar.subheader("🎯 Smart Navigation")
+    
+    # 1. Class Selection
+    classes = sorted(list(set(q['Class'] for q in all_qs)))
+    sel_class = st.sidebar.selectbox("1. Choose Class", ["All"] + classes)
+    
+    filtered = all_qs
+    if sel_class != "All":
+        filtered = [q for q in filtered if q['Class'] == sel_class]
+        
+        # 2. Subject Selection
+        subjects = sorted(list(set(q['Subject'] for q in filtered)))
+        sel_subj = st.sidebar.selectbox("2. Choose Subject", ["All"] + subjects)
+        
+        if sel_subj != "All":
+            filtered = [q for q in filtered if q['Subject'] == sel_subj]
+            
+            # 3. Dynamic Topic/Category Drill-Down
+            # We look at the 'Topic' strings which might be 'Category > Chapter'
+            # We want to offer a clean way to filter these.
+            
+            all_topics = sorted(list(set(q['Topic'] for q in filtered)))
+            
+            # Check if topics contain sub-folders (contains ' > ')
+            has_subfolders = any(" > " in t for t in all_topics)
+            
+            if has_subfolders:
+                # Get top-level categories (e.g., 'Biology', 'Physics')
+                categories = sorted(list(set(t.split(" > ")[0] for t in all_topics)))
+                sel_cat = st.sidebar.selectbox("3. Choose Category", ["All"] + categories)
+                
+                if sel_cat != "All":
+                    filtered = [q for q in filtered if q['Topic'].startswith(sel_cat)]
+                    # After picking a category, show chapters within that category
+                    sub_topics = sorted(list(set(q['Topic'] for q in filtered)))
+                    # Strip the 'Category > ' prefix for cleaner display
+                    display_topics = [t.split(" > ")[-1] if " > " in t else t for t in sub_topics]
+                    
+                    sel_topic = st.sidebar.selectbox("4. Choose Chapter", ["All"] + display_topics)
+                    if sel_topic != "All":
+                        # Match back to the full topic string
+                        filtered = [q for q in filtered if q['Topic'].endswith(sel_topic)]
+            else:
+                # Direct chapter selection for subjects like Math
+                sel_topic = st.sidebar.selectbox("3. Choose Chapter", ["All"] + all_topics)
+                if sel_topic != "All":
+                    filtered = [q for q in filtered if q['Topic'] == sel_topic]
+
+    # --- Real-time Score Display ---
+    acc = 0 if st.session_state.attempted == 0 else int(st.session_state.correct/st.session_state.attempted*100)
+    st.info(f"📊 Live Stats | Score: {st.session_state.correct} / {st.session_state.attempted} | Accuracy: {acc}%")
+    
+    # --- Practice Mode Tabs/Content ---
+    st.markdown("---")
+    
     with tab1:
         st.title("🎯 Practice Zone")
-        # Sidebar Filters Logic
-        classes = sorted(list(set(q['Class'] for q in all_qs)))
-        sel_class = st.sidebar.selectbox("Class", ["All"] + classes)
-        
-        filtered = [q for q in all_qs if (sel_class == "All" or q['Class'] == sel_class)]
-        
-        subjects = sorted(list(set(q['Subject'] for q in filtered)))
-        sel_subj = st.sidebar.selectbox("Subject", ["All"] + subjects)
-        if sel_subj != "All": filtered = [q for q in filtered if q['Subject'] == sel_subj]
-        
-        acc = 0 if st.session_state.attempted == 0 else int(st.session_state.correct/st.session_state.attempted*100)
-        st.info(f"Practice Score: {st.session_state.correct} / {st.session_state.attempted} (Accuracy: {acc}%)")
         
         # --- Exam Mode Toggle ---
-        st.markdown("---")
         col_ex1, col_ex2 = st.columns([2, 1])
         with col_ex1:
             if not st.session_state.exam_mode:
