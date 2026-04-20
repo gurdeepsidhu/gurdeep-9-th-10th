@@ -539,6 +539,64 @@
                     "chapter": "Human Eye and Colorful World"
                 }
             ]
+        },
+        "Mathematics": {
+            "Quadratic Equations": [
+                {
+                    "question_id": "MAT-QE-2023-E-31",
+                    "question_text": "If the discriminant of a quadratic equation ax^2 + bx + c = 0 is greater than zero, the roots are:",
+                    "options": {
+                        "A": "Real and equal",
+                        "B": "Real and distinct",
+                        "C": "No real roots",
+                        "D": "Imaginary"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "If D > 0, the equation has two different (distinct) real numbers as its solutions.",
+                        "advanced": "The discriminant D = b^2 - 4ac determines the nature of roots. D > 0 implies two distinct real roots, D = 0 implies two equal real roots, and D < 0 implies no real roots."
+                    },
+                    "year": "CBSE 2023",
+                    "difficulty": "Easy",
+                    "chapter": "Quadratic Equations"
+                },
+                {
+                    "question_id": "MAT-QE-2022-M-32",
+                    "question_text": "Find the roots of the quadratic equation x^2 - 5x + 6 = 0.",
+                    "options": {
+                        "A": "2 and 3",
+                        "B": "-2 and -3",
+                        "C": "1 and 6",
+                        "D": "-1 and -6"
+                    },
+                    "correct_answer": "A",
+                    "explanations": {
+                        "basic": "We need to find two numbers that multiply to 6 and add up to -5. Those numbers are -2 and -3. So (x-2)(x-3) = 0, which gives x = 2 or 3.",
+                        "advanced": "Using factorization: x^2 - 3x - 2x + 6 = 0 => x(x-3) - 2(x-3) = 0 => (x-2)(x-3) = 0. Therefore, the roots are 2 and 3."
+                    },
+                    "year": "CBSE 2022",
+                    "difficulty": "Medium",
+                    "chapter": "Quadratic Equations"
+                },
+                {
+                    "question_id": "MAT-QE-2021-H-33",
+                    "question_text": "The values of k for which the quadratic equation 2x^2 + kx + 3 = 0 has two equal roots is:",
+                    "options": {
+                        "A": "2\u221a6",
+                        "B": "\u00b12\u221a6",
+                        "C": "\u00b1\u221a6",
+                        "D": "0"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "For equal roots, the discriminant (b^2 - 4ac) must be zero. Here, k^2 - 4(2)(3) = 0, so k^2 = 24.",
+                        "advanced": "D = b^2 - 4ac = 0. k^2 - 4(2)(3) = 0 => k^2 - 24 = 0 => k^2 = 24 => k = \u00b1\u221a24 = \u00b12\u221a6."
+                    },
+                    "year": "CBSE 2021",
+                    "difficulty": "Hard",
+                    "chapter": "Quadratic Equations"
+                }
+            ]
         }
     }
 }
