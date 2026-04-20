@@ -73,17 +73,22 @@ def get_ai_explanation(client, q, user_answer, is_correct):
 
 # --- UI Components ---
 def display_question_card(q, idx, client, mode):
-    diff = q['Difficulty'].lower()
+    # Safe access to fields with defaults
+    diff = q.get('Difficulty', q.get('difficulty', 'Medium')).lower()
+    year = q.get('Year', q.get('year', 'Unknown'))
+    chapter = q.get('Chapter', q.get('chapter', 'Unknown'))
+    topic = q.get('Topic', 'General')
+    
     badge_class = f"badge-{diff}" if diff in ['easy', 'medium', 'hard'] else "badge-medium"
     
     with st.container():
         st.markdown(f"""
         <div class="question-card">
             <div class="question-header">
-                <div><strong>{q['Year']}</strong> | {q['Chapter']} > {q['Topic']}</div>
-                <div class="badge {badge_class}">{q['Difficulty']}</div>
+                <div><strong>{year}</strong> | {chapter} > {topic}</div>
+                <div class="badge {badge_class}">{diff.capitalize()}</div>
             </div>
-            <h5 style="color: #212529;">Q. {q['question_text']}</h5>
+            <h5 style="color: #212529;">Q. {q.get('question_text', 'No question text available.')}</h5>
         </div>
         """, unsafe_allow_html=True)
         
