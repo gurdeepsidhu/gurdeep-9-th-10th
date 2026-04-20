@@ -172,7 +172,6 @@ st.markdown("""
 @st.cache_data
 def load_and_flatten_data():
     import os
-    # Get the directory where this script is located
     base_dir = os.path.dirname(os.path.abspath(__file__))
     db_path = os.path.join(base_dir, 'database.json')
     
@@ -180,29 +179,40 @@ def load_and_flatten_data():
         with open(db_path, 'r') as f:
             db = json.load(f)
     except FileNotFoundError:
-        st.error(f"Database not found at {db_path}! Please make sure database.json is in the same folder as this app.")
+        st.error(f"Database not found at {db_path}!")
         return []
 
-    # Flatten the new hierarchical JSON (Class -> Subject -> Topic -> [Questions])
     questions = []
-    for cls, subjects in db.items():
-        for subject, topics in subjects.items():
-            for topic, q_list in topics.items():
-                for q in q_list:
-                    flat_q = {
-                        'Class': cls,
-                        'Subject': subject,
-                        'Topic': topic,
-                        'Chapter': q.get('chapter', 'Unknown'),
-                        'Year': q.get('year', 'Unknown'),
-                        'Difficulty': q.get('difficulty', 'Unknown'),
-                        'question_id': q.get('question_id'),
-                        'question_text': q.get('question_text'),
-                        'options': q.get('options'),
-                        'correct_answer': q.get('correct_answer'),
-                        'explanations': q.get('explanations', {})
-                    }
-                    questions.append(flat_q)
+
+    def recursive_flatten(data, path_dict):
+        """Recursively traverses the JSON until it finds a list of questions."""
+        if isinstance(data, list):
+            # We found the actual questions!
+            for q in data:
+                flat_q = q.copy()
+                # Carry over the hierarchy info
+                flat_q.update(path_dict)
+                # Ensure compatibility with old 'Chapter' key
+                if 'Chapter' not in flat_q:
+                    flat_q['Chapter'] = path_dict.get('Topic', 'Unknown')
+                questions.append(flat_q)
+            return
+
+        if isinstance(data, dict):
+            for key, value in data.items():
+                new_path = path_dict.copy()
+                # Assign key to the correct hierarchy level based on depth
+                depth = len(path_dict)
+                if depth == 0: new_path['Class'] = key
+                elif depth == 1: new_path['Subject'] = key
+                elif depth == 2: new_path['Topic'] = key
+                else: 
+                    # For levels deeper than 3, we append to Topic for display
+                    new_path['Topic'] = f"{path_dict['Topic']} > {key}"
+                
+                recursive_flatten(value, new_path)
+
+    recursive_flatten(db, {})
     return questions
 
 def main():

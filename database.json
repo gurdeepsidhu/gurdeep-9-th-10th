@@ -387,6 +387,120 @@
                     "chapter": "Acids, Bases and Salts"
                 }
             ],
+            "Biology": {
+                "Life Processes": [
+                    {
+                        "question_id": "SCI-BIO-LP-2023-E-25",
+                        "question_text": "The process by which green plants make their own food is called:",
+                        "options": {
+                            "A": "Respiration",
+                            "B": "Transpiration",
+                            "C": "Photosynthesis",
+                            "D": "Digestion"
+                        },
+                        "correct_answer": "C",
+                        "explanations": {
+                            "basic": "Green plants use sunlight, water, and CO2 to create food (glucose) in a process called photosynthesis.",
+                            "advanced": "6CO2 + 12H2O + Light → C6H12O6 + 6O2 + 6H2O. This takes place in the chloroplasts of the leaf cells."
+                        },
+                        "year": "CBSE 2023",
+                        "difficulty": "Easy",
+                        "chapter": "Life Processes"
+                    },
+                    {
+                        "question_id": "SCI-BIO-LP-2022-M-26",
+                        "question_text": "Which chamber of the human heart receives oxygenated blood from the lungs?",
+                        "options": {
+                            "A": "Right Atrium",
+                            "B": "Left Atrium",
+                            "C": "Right Ventricle",
+                            "D": "Left Ventricle"
+                        },
+                        "correct_answer": "B",
+                        "explanations": {
+                            "basic": "Oxygen-rich blood comes from the lungs and enters the Left Atrium of the heart first.",
+                            "advanced": "The pulmonary vein carries oxygenated blood from the lungs to the left atrium. From there, it moves to the left ventricle to be pumped to the rest of the body."
+                        },
+                        "year": "CBSE 2022",
+                        "difficulty": "Medium",
+                        "chapter": "Life Processes"
+                    },
+                    {
+                        "question_id": "SCI-BIO-LP-2021-H-27",
+                        "question_text": "The breakdown of pyruvate to give carbon dioxide, water and energy takes place in:",
+                        "options": {
+                            "A": "Cytoplasm",
+                            "B": "Mitochondria",
+                            "C": "Chloroplast",
+                            "D": "Nucleus"
+                        },
+                        "correct_answer": "B",
+                        "explanations": {
+                            "basic": "While the first step of breaking down glucose happens in the cytoplasm, the final energy release happens in the mitochondria (the powerhouse of the cell).",
+                            "advanced": "Aerobic respiration involves the oxidation of pyruvate in the mitochondria. This process produces significantly more ATP than anaerobic respiration."
+                        },
+                        "year": "CBSE 2021",
+                        "difficulty": "Hard",
+                        "chapter": "Life Processes"
+                    }
+                ],
+                "Control and Coordination": [
+                    {
+                        "question_id": "SCI-BIO-CC-2023-E-28",
+                        "question_text": "The gap between two neurons is called a:",
+                        "options": {
+                            "A": "Dendrite",
+                            "B": "Synapse",
+                            "C": "Axon",
+                            "D": "Impulse"
+                        },
+                        "correct_answer": "B",
+                        "explanations": {
+                            "basic": "Information travels across the tiny gap between two nerve cells called a synapse.",
+                            "advanced": "At the synapse, electrical signals are converted into chemical signals (neurotransmitters) to cross the gap and reach the next neuron."
+                        },
+                        "year": "CBSE 2023",
+                        "difficulty": "Easy",
+                        "chapter": "Control and Coordination"
+                    },
+                    {
+                        "question_id": "SCI-BIO-CC-2022-M-29",
+                        "question_text": "Which plant hormone is primarily responsible for the growth of the stem?",
+                        "options": {
+                            "A": "Auxin",
+                            "B": "Gibberellin",
+                            "C": "Cytokinin",
+                            "D": "Abscisic acid"
+                        },
+                        "correct_answer": "B",
+                        "explanations": {
+                            "basic": "Gibberellins are the main hormones that help in the growth and elongation of the stem in plants.",
+                            "advanced": "Gibberellins promote cell division and cell elongation in stems. Auxins also help, but their primary role is apical dominance and phototropism."
+                        },
+                        "year": "CBSE 2022",
+                        "difficulty": "Medium",
+                        "chapter": "Control and Coordination"
+                    },
+                    {
+                        "question_id": "SCI-BIO-CC-2021-H-30",
+                        "question_text": "The part of the brain responsible for maintaining posture and balance of the body is:",
+                        "options": {
+                            "A": "Cerebrum",
+                            "B": "Cerebellum",
+                            "C": "Medulla",
+                            "D": "Pons"
+                        },
+                        "correct_answer": "B",
+                        "explanations": {
+                            "basic": "The cerebellum (located at the back of the brain) is in charge of your balance, posture, and precise movements like cycling.",
+                            "advanced": "The cerebellum is part of the hindbrain. It coordinates voluntary movements such as posture, balance, coordination, and speech, resulting in smooth and balanced muscular activity."
+                        },
+                        "year": "CBSE 2021",
+                        "difficulty": "Hard",
+                        "chapter": "Control and Coordination"
+                    }
+                ]
+            },
             "Board Mix": [
                 {
                     "question_id": "SCI-BIO-KID-2022-M-14",
