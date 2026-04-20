@@ -182,6 +182,98 @@
                     "difficulty": "Hard",
                     "chapter": "Light - Reflection and Refraction"
                 }
+            ],
+            "Board Mix": [
+                {
+                    "question_id": "SCI-CHM-PH-2023-E-11",
+                    "question_text": "The pH of a neutral solution at 25°C is:",
+                    "options": {
+                        "A": "0",
+                        "B": "7",
+                        "C": "14",
+                        "D": "1"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "On the pH scale, a value of 7 indicates a neutral solution (neither acidic nor basic).",
+                        "advanced": "pH is defined as -log10[H+]. At 25°C, pure water has [H+] = 10^-7 mol/L, thus pH = 7."
+                    },
+                    "year": "CBSE 2023",
+                    "difficulty": "Easy",
+                    "chapter": "Acids, Bases and Salts"
+                },
+                {
+                    "question_id": "SCI-PHY-POW-2022-E-12",
+                    "question_text": "The SI unit of electric power is:",
+                    "options": {
+                        "A": "Ampere",
+                        "B": "Volt",
+                        "C": "Watt",
+                        "D": "Ohm"
+                    },
+                    "correct_answer": "C",
+                    "explanations": {
+                        "basic": "Power is the rate of doing work or consuming energy. Its SI unit is the Watt.",
+                        "advanced": "1 Watt = 1 Joule per second. In electrical terms, P = V * I, so 1 Watt = 1 Volt * 1 Ampere."
+                    },
+                    "year": "CBSE 2022",
+                    "difficulty": "Easy",
+                    "chapter": "Electricity"
+                },
+                {
+                    "question_id": "SCI-CHM-REA-2023-M-13",
+                    "question_text": "When calcium oxide reacts vigorously with water to form calcium hydroxide, it is an example of:",
+                    "options": {
+                        "A": "Combination reaction",
+                        "B": "Decomposition reaction",
+                        "C": "Displacement reaction",
+                        "D": "Double displacement reaction"
+                    },
+                    "correct_answer": "A",
+                    "explanations": {
+                        "basic": "Two reactants (CaO and H2O) combine to form a single product [Ca(OH)2], which is a combination reaction.",
+                        "advanced": "CaO(s) + H2O(l) → Ca(OH)2(aq) + Heat. This is also an exothermic reaction as a large amount of heat is released."
+                    },
+                    "year": "CBSE 2023",
+                    "difficulty": "Medium",
+                    "chapter": "Chemical Reactions and Equations"
+                },
+                {
+                    "question_id": "SCI-BIO-KID-2022-M-14",
+                    "question_text": "The functional unit of the human kidney is called:",
+                    "options": {
+                        "A": "Neuron",
+                        "B": "Nephron",
+                        "C": "Alveoli",
+                        "D": "Ureter"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "Nephrons are tiny filtering units in the kidneys that remove waste from the blood.",
+                        "advanced": "Each kidney contains about 1 million nephrons. They consist of a renal corpuscle (Glomerulus and Bowman's capsule) and a renal tubule."
+                    },
+                    "year": "CBSE 2022",
+                    "difficulty": "Medium",
+                    "chapter": "Life Processes"
+                },
+                {
+                    "question_id": "SCI-PHY-EYE-2023-E-15",
+                    "question_text": "The near point of a normal human eye is at a distance of:",
+                    "options": {
+                        "A": "2.5 cm",
+                        "B": "25 cm",
+                        "C": "2.5 m",
+                        "D": "Infinity"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "For a normal adult eye, the closest distance at which objects can be seen clearly without strain is 25 cm.",
+                        "advanced": "The near point is the point at which the ciliary muscles are at their maximum contraction to increase the curvature of the lens for focusing close objects."
+                    },
+                    "year": "CBSE 2023",
+                    "difficulty": "Easy",
+                    "chapter": "Human Eye and Colorful World"
+                }
             ]
         }
     }
