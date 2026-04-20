@@ -16,6 +16,10 @@ def init_session_state():
     if 'bookmarks' not in st.session_state: st.session_state.bookmarks = set()
     if 'mistake_qs' not in st.session_state:
         st.session_state.mistake_qs = set()
+    if 'subject_stats' not in st.session_state:
+        st.session_state.subject_stats = {}
+    if 'accuracy_history' not in st.session_state:
+        st.session_state.accuracy_history = []
     if 'exam_mode' not in st.session_state:
         st.session_state.exam_mode = False
     if 'start_time' not in st.session_state:
@@ -123,6 +127,21 @@ def display_question_card(q, idx, client, mode, is_locked=False):
                                 st.balloons()
                             else:
                                 st.session_state.mistake_qs.add(q['question_id'])
+                            
+                            # Track Subject Stats
+                            subj = q.get('Subject', 'General')
+                            if subj not in st.session_state.subject_stats:
+                                st.session_state.subject_stats[subj] = {'correct': 0, 'attempted': 0}
+                            st.session_state.subject_stats[subj]['attempted'] += 1
+                            if user_choice == q['correct_answer']:
+                                st.session_state.subject_stats[subj]['correct'] += 1
+                            
+                            # Track Accuracy History (for line chart)
+                            current_acc = int(st.session_state.correct / st.session_state.attempted * 100)
+                            st.session_state.accuracy_history.append(current_acc)
+                            if len(st.session_state.accuracy_history) > 20: # Keep last 20 steps
+                                st.session_state.accuracy_history.pop(0)
+                                
                         st.rerun()
             else:
                 if has_submitted:
@@ -249,7 +268,9 @@ def main():
     client = get_ai_teacher_client()
     all_qs = load_and_flatten_data()
     
-    tab1, tab2 = st.tabs(["Practice Mode", "Review Mode"])
+    tab1, tab2, tab3 = st.tabs(["🚀 Practice Mode", "🧠 Review Mode", "📊 Analytics"])
+    
+    # ... (Sidebar logic remains same, but filtered for practice/review)
     
     # --- Sidebar Navigation (Dynamic Drill-Down) ---
     st.sidebar.divider()
@@ -357,6 +378,56 @@ def main():
                 st.rerun()
             for idx, q in enumerate(review_qs):
                 display_question_card(q, idx, client, "review")
+
+    with tab3:
+        st.title("📈 Performance Analytics")
+        st.write("Track your progress and master every subject!")
+        
+        import pandas as pd
+        import plotly.express as px
+        
+        col_an1, col_an2 = st.columns(2)
+        
+        with col_an1:
+            st.subheader("🎯 Subject-wise Accuracy")
+            if st.session_state.subject_stats:
+                data = []
+                for s, stats in st.session_state.subject_stats.items():
+                    acc = int((stats['correct'] / stats['attempted']) * 100)
+                    data.append({"Subject": s, "Accuracy (%)": acc})
+                df = pd.DataFrame(data)
+                fig = px.bar(df, x='Subject', y='Accuracy (%)', 
+                             color_discrete_sequence=['#0d9488'], # Teal
+                             template="plotly_white")
+                fig.update_layout(yaxis_range=[0,100])
+                st.plotly_chart(fig, use_container_width=True)
+            else:
+                st.info("Start practicing to see subject-wise analysis!")
+                
+        with col_an2:
+            st.subheader("📈 Improvement Timeline")
+            if len(st.session_state.accuracy_history) > 1:
+                df_hist = pd.DataFrame({
+                    "Attempt": list(range(1, len(st.session_state.accuracy_history) + 1)),
+                    "Accuracy %": st.session_state.accuracy_history
+                })
+                fig_line = px.line(df_hist, x='Attempt', y='Accuracy %', 
+                                   markers=True,
+                                   color_discrete_sequence=['#1e293b'], # Navy
+                                   template="plotly_white")
+                fig_line.update_layout(yaxis_range=[0,100])
+                st.plotly_chart(fig_line, use_container_width=True)
+            else:
+                st.info("Solve more questions to see your growth curve!")
+
+        st.divider()
+        # Overall Summary Stats
+        st.subheader("🏆 Overall Mastery")
+        cols = st.columns(3)
+        cols[0].metric("Total Questions Solved", st.session_state.attempted)
+        cols[1].metric("Correct Answers", st.session_state.correct)
+        acc_total = 0 if st.session_state.attempted == 0 else int(st.session_state.correct/st.session_state.attempted*100)
+        cols[2].metric("Overall Accuracy", f"{acc_total}%")
 
 if __name__ == "__main__":
     main()
