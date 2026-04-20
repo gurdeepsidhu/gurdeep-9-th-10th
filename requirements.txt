@@ -3,3 +3,5 @@ openai
 fpdf2
 streamlit-mic-recorder
 PyMuPDF
+plotly
+pandas
