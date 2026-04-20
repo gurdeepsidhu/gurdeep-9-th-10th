@@ -132,23 +132,31 @@ st.set_page_config(page_title="Student Dashboard", page_icon="📚", layout="wid
 st.markdown("""
 <style>
     .question-card {
-        background-color: #f8f9fa;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        border: 1px solid #dee2e6;
+        background-color: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        margin-bottom: 25px;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         color: #212529;
+    }
+    .stButton>button {
+        border-radius: 8px;
+        font-weight: 600;
     }
     .question-header {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        font-size: 0.9em;
+        color: #6c757d;
     }
     .badge {
-        padding: 5px 10px;
-        border-radius: 15px;
-        font-size: 0.8em;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.75em;
         font-weight: bold;
+        text-transform: uppercase;
     }
     .badge-easy { background-color: #d1e7dd; color: #0f5132; }
     .badge-medium { background-color: #fff3cd; color: #664d03; }
@@ -193,7 +201,7 @@ def load_and_flatten_data():
 
 def main():
     init_session_state()
-    st.sidebar.title("⚙️ AI Settings")
+    st.sidebar.title("📚 PYQ Learning Hub")
     
     # Check if API Key is stored in Streamlit Cloud Secrets
     api_key = st.secrets.get("GROQ_API_KEY")
@@ -225,7 +233,6 @@ def main():
     st.sidebar.write(f"📚 Questions in DB: {len(all_questions)}")
 
     st.title("🎯 Board Exam PYQ Assistant")
-    st.error("🚀 GROQ MODE ACTIVE - VERSION 2.0")
     st.write("Solve previous year questions and get AI-powered insights!")
 
     if not all_questions:
