@@ -363,8 +363,22 @@ def main():
             if search_lower in q['Topic'].lower() or search_lower in q['Chapter'].lower()
         ]
 
+    # --- Progress Tracker (Real-time Score) ---
+    st.markdown("---")
+    col_score1, col_score2 = st.columns([1, 1])
+    with col_score1:
+        st.subheader("📝 Practice Zone")
+    with col_score2:
+        acc = 0 if st.session_state.attempted == 0 else int((st.session_state.correct / st.session_state.attempted) * 100)
+        st.markdown(f"""
+            <div style="text-align: right; background: #f0f2f6; padding: 10px; border-radius: 10px; border-left: 5px solid #4CAF50;">
+                <span style="font-size: 1.2em; font-weight: bold; color: #1f77b4;">Score: {st.session_state.correct} / {st.session_state.attempted}</span>
+                <br><span style="font-size: 0.9em; color: #666;">Accuracy: {acc}%</span>
+            </div>
+        """, unsafe_allow_html=True)
+
     # --- Display Questions ---
-    st.subheader(f"Questions Found: {len(filtered_questions)}")
+    st.write(f"Found **{len(filtered_questions)}** questions matching your selection.")
     
     # Phase 5: PDF Mock Test Generator
     if filtered_questions:
