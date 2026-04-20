@@ -183,6 +183,62 @@
                     "chapter": "Light - Reflection and Refraction"
                 }
             ],
+            "Electricity": [
+                {
+                    "question_id": "SCI-PHY-ELE-2023-E-16",
+                    "question_text": "According to Ohm's law, if the resistance of a conductor is doubled while keeping the potential difference constant, the current will become:",
+                    "options": {
+                        "A": "Double",
+                        "B": "Half",
+                        "C": "One-fourth",
+                        "D": "Remain the same"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "Since V = IR, if V is constant and R is doubled (2R), the current I must become half (I/2) to balance the equation.",
+                        "advanced": "I = V/R. If R' = 2R, then I' = V/(2R) = 1/2 * (V/R) = 1/2 * I. This demonstrates the inverse relationship between current and resistance."
+                    },
+                    "year": "CBSE 2023",
+                    "difficulty": "Easy",
+                    "chapter": "Electricity"
+                },
+                {
+                    "question_id": "SCI-PHY-ELE-2022-M-17",
+                    "question_text": "Which of the following represents the correct formula for Electric Power (P) in terms of Voltage (V) and Resistance (R)?",
+                    "options": {
+                        "A": "P = V * R",
+                        "B": "P = V^2 / R",
+                        "C": "P = I^2 * V",
+                        "D": "P = V / R^2"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "Electric power can be calculated using the square of the voltage divided by the resistance (V²/R).",
+                        "advanced": "Starting from P = VI and substituting I = V/R from Ohm's law, we get P = V * (V/R) = V²/R. This formula is useful when the voltage is constant."
+                    },
+                    "year": "CBSE 2022",
+                    "difficulty": "Medium",
+                    "chapter": "Electricity"
+                },
+                {
+                    "question_id": "SCI-PHY-ELE-2021-H-18",
+                    "question_text": "A wire of resistance R is cut into five equal pieces. These pieces are then connected in parallel. If the equivalent resistance of this combination is R', then the ratio R/R' is:",
+                    "options": {
+                        "A": "1/25",
+                        "B": "1/5",
+                        "C": "5",
+                        "D": "25"
+                    },
+                    "correct_answer": "D",
+                    "explanations": {
+                        "basic": "Cutting the wire makes each piece R/5. Connecting 5 such pieces in parallel makes the total resistance (R/5)/5 = R/25. The ratio R / (R/25) is 25.",
+                        "advanced": "Each piece has resistance r = R/5. In parallel, 1/R' = 1/r + 1/r + 1/r + 1/r + 1/r = 5/r = 5 / (R/5) = 25/R. Therefore, R/R' = 25."
+                    },
+                    "year": "CBSE 2021",
+                    "difficulty": "Hard",
+                    "chapter": "Electricity"
+                }
+            ],
             "Board Mix": [
                 {
                     "question_id": "SCI-CHM-PH-2023-E-11",
