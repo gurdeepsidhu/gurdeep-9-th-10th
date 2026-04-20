@@ -305,34 +305,32 @@ def main():
     classes = sorted(list(set(q['Class'] for q in all_questions)))
     subjects = sorted(list(set(q['Subject'] for q in all_questions)))
 
-    # --- Filters ---
-    st.subheader("Filter Questions")
-    col1, col2, col3 = st.columns(3)
+    # --- Sidebar Filters ---
+    st.sidebar.divider()
+    st.sidebar.subheader("🎯 Navigation")
     
-    with col1:
-        classes = sorted(list(set(q['Class'] for q in all_questions)))
-        selected_class = st.selectbox("1. Select Class", ["All"] + classes)
+    classes = sorted(list(set(q['Class'] for q in all_questions)))
+    selected_class = st.sidebar.selectbox("1. Select Class", ["All"] + classes)
     
-    with col2:
-        if selected_class != "All":
-            subjects = sorted(list(set(q['Subject'] for q in all_questions if q['Class'] == selected_class)))
-        else:
-            subjects = sorted(list(set(q['Subject'] for q in all_questions)))
-        selected_subject = st.selectbox("2. Select Subject", ["All"] + subjects)
-        
-    with col3:
+    if selected_class != "All":
+        subjects = sorted(list(set(q['Subject'] for q in all_questions if q['Class'] == selected_class)))
+    else:
+        subjects = sorted(list(set(q['Subject'] for q in all_questions)))
+    selected_subject = st.sidebar.selectbox("2. Select Subject", ["All"] + subjects)
+    
+    if selected_subject != "All":
+        topics = sorted(list(set(q['Topic'] for q in all_questions if q['Subject'] == selected_subject and (selected_class == "All" or q['Class'] == selected_class))))
+    else:
+        topics = []
+    
+    if topics:
+        selected_topic_filter = st.sidebar.selectbox("3. Select Topic", ["All"] + topics)
+    else:
+        selected_topic_filter = "All"
         if selected_subject != "All":
-            topics = sorted(list(set(q['Topic'] for q in all_questions if q['Subject'] == selected_subject and (selected_class == "All" or q['Class'] == selected_class))))
-        else:
-            topics = []
-        
-        if topics:
-            selected_topic_filter = st.selectbox("3. Select Topic", ["All"] + topics)
-        else:
-            selected_topic_filter = "All"
-            st.info("Select a Subject to see Topics")
+            st.sidebar.info("No specific topics found.")
 
-    st.divider()
+    st.sidebar.divider()
 
     # --- Apply Filters ---
     filtered_questions = all_questions
