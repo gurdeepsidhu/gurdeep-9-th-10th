@@ -5,6 +5,7 @@ from fpdf import FPDF
 import io
 import os
 import random
+import time
 
 # --- Initialization ---
 def init_session_state():
@@ -15,6 +16,8 @@ def init_session_state():
     if 'answered_qs' not in st.session_state: st.session_state.answered_qs = set()
     if 'bookmarks' not in st.session_state: st.session_state.bookmarks = set()
     if 'mistake_qs' not in st.session_state: st.session_state.mistake_qs = set()
+    if 'exam_mode' not in st.session_state: st.session_state.exam_mode = False
+    if 'start_time' not in st.session_state: st.session_state.start_time = None
 
 # --- Load and Process Data ---
 @st.cache_data
@@ -72,8 +75,7 @@ def get_ai_explanation(client, q, user_answer, is_correct):
         return "AI Teacher busy. Please try again!"
 
 # --- UI Components ---
-def display_question_card(q, idx, client, mode):
-    # Safe access to fields with defaults
+def display_question_card(q, idx, client, mode, is_locked=False):
     diff = q.get('Difficulty', q.get('difficulty', 'Medium')).lower()
     year = q.get('Year', q.get('year', 'Unknown'))
     chapter = q.get('Chapter', q.get('chapter', 'Unknown'))
@@ -95,14 +97,15 @@ def display_question_card(q, idx, client, mode):
         # Options
         submit_key = f"sub_{q['question_id']}_{mode}"
         has_submitted = submit_key in st.session_state
+        actual_lock = has_submitted or is_locked
         
         user_choice = st.radio(f"Select Answer for Q{idx+1}:", list(q['options'].keys()), 
                                format_func=lambda x: f"{x}) {q['options'][x]}",
-                               key=f"rad_{q['question_id']}_{mode}", index=None, disabled=has_submitted)
+                               key=f"rad_{q['question_id']}_{mode}", index=None, disabled=actual_lock)
         
         col1, col2 = st.columns([1, 1])
         with col1:
-            if not has_submitted:
+            if not actual_lock:
                 if st.button(f"Submit Answer", key=f"btn_{q['question_id']}_{mode}"):
                     if user_choice:
                         st.session_state[submit_key] = user_choice
@@ -117,19 +120,22 @@ def display_question_card(q, idx, client, mode):
                                 st.session_state.mistake_qs.add(q['question_id'])
                         st.rerun()
             else:
-                saved = st.session_state[submit_key]
-                if saved == q['correct_answer']:
-                    st.success(f"Correct! The answer is {q['correct_answer']}")
-                else:
-                    st.error(f"Incorrect. The correct answer is {q['correct_answer']}")
-                
-                if st.button("Get AI Insight", key=f"ai_{q['question_id']}_{mode}"):
-                    if client:
-                        with st.spinner("Analyzing..."):
-                            insight = get_ai_explanation(client, q, saved, saved == q['correct_answer'])
-                            st.info(insight)
+                if has_submitted:
+                    saved = st.session_state[submit_key]
+                    if saved == q['correct_answer']:
+                        st.success(f"Correct! The answer is {q['correct_answer']}")
                     else:
-                        st.warning("Connect AI in sidebar for insights!")
+                        st.error(f"Incorrect. The correct answer is {q['correct_answer']}")
+                    
+                    if st.button("Get AI Insight", key=f"ai_{q['question_id']}_{mode}"):
+                        if client:
+                            with st.spinner("Analyzing..."):
+                                insight = get_ai_explanation(client, q, saved, saved == q['correct_answer'])
+                                st.info(insight)
+                        else:
+                            st.warning("Connect AI in sidebar for insights!")
+                elif is_locked:
+                    st.warning("Time is up! Answers are locked.")
 
         with col2:
             is_bookmarked = q['question_id'] in st.session_state.bookmarks
@@ -141,7 +147,7 @@ def display_question_card(q, idx, client, mode):
 
 # --- Main App ---
 def main():
-    st.set_page_config(page_title="PYQ Hub Student Edition", layout="wide")
+    st.set_page_config(page_title="PYQ Student Hub", layout="wide")
     init_session_state()
     
     # CSS
@@ -156,41 +162,64 @@ def main():
     </style>
     """, unsafe_allow_html=True)
 
-    st.sidebar.title("📚 PYQ Student Hub")
+    st.sidebar.title("📚 Student Dashboard")
     client = get_ai_teacher_client()
     all_qs = load_and_flatten_data()
     
     tab1, tab2 = st.tabs(["Practice Mode", "Review Mode"])
     
     with tab1:
-        st.title("🎯 Practice Zone")
-        # Sidebar Filters Logic
+        st.title("🎯 Practice & Exam Zone")
+        
+        # Sidebar Filters
         classes = sorted(list(set(q['Class'] for q in all_qs)))
         sel_class = st.sidebar.selectbox("Class", ["All"] + classes)
-        
         filtered = [q for q in all_qs if (sel_class == "All" or q['Class'] == sel_class)]
         
         subjects = sorted(list(set(q['Subject'] for q in filtered)))
         sel_subj = st.sidebar.selectbox("Subject", ["All"] + subjects)
         if sel_subj != "All": filtered = [q for q in filtered if q['Subject'] == sel_subj]
         
-        # Real-time Score
-        st.info(f"Score: {st.session_state.correct} / {st.session_state.attempted} (Accuracy: {0 if st.session_state.attempted == 0 else int(st.session_state.correct/st.session_state.attempted*100)}%)")
+        # Timer UI
+        col_ex1, col_ex2 = st.columns([2, 1])
+        with col_ex1:
+            if not st.session_state.exam_mode:
+                if st.button("🏁 Start 30-Min Exam Simulator"):
+                    st.session_state.exam_mode = True
+                    st.session_state.start_time = time.time()
+                    st.rerun()
+            else:
+                if st.button("⏹️ Stop Exam"):
+                    st.session_state.exam_mode = False
+                    st.session_state.start_time = None
+                    st.rerun()
+        
+        with col_ex2:
+            is_locked = False
+            if st.session_state.exam_mode and st.session_state.start_time:
+                elapsed = time.time() - st.session_state.start_time
+                remaining = max(0, 1800 - int(elapsed))
+                mins, secs = divmod(remaining, 60)
+                st.error(f"⏱️ Time: {mins:02d}:{secs:02d}")
+                if remaining == 0: 
+                    is_locked = True
+                    st.warning("⚠️ TIME UP!")
+            
+        acc = 0 if st.session_state.attempted == 0 else int(st.session_state.correct/st.session_state.attempted*100)
+        st.info(f"Score: {st.session_state.correct} / {st.session_state.attempted} (Accuracy: {acc}%)")
         
         for idx, q in enumerate(filtered):
-            display_question_card(q, idx, client, "practice")
+            display_question_card(q, idx, client, "practice", is_locked=is_locked)
 
     with tab2:
-        st.title("🧠 Your Personal Review Room")
-        st.write("Revisit questions you bookmarked or got wrong.")
-        
+        st.title("🧠 Review My Mistakes")
         review_ids = st.session_state.bookmarks.union(st.session_state.mistake_qs)
         review_qs = [q for q in all_qs if q['question_id'] in review_ids]
         
         if not review_qs:
-            st.success("No mistakes yet! Keep practicing.")
+            st.success("No mistakes yet!")
         else:
-            if st.button("Clear All Mistakes", key="clear_mistakes_student"):
+            if st.button("Clear Mistake History"):
                 st.session_state.mistake_qs = set()
                 st.rerun()
             for idx, q in enumerate(review_qs):

@@ -14,7 +14,12 @@ def init_session_state():
     if 'topic_streak' not in st.session_state: st.session_state.topic_streak = {}
     if 'answered_qs' not in st.session_state: st.session_state.answered_qs = set()
     if 'bookmarks' not in st.session_state: st.session_state.bookmarks = set()
-    if 'mistake_qs' not in st.session_state: st.session_state.mistake_qs = set()
+    if 'mistake_qs' not in st.session_state:
+        st.session_state.mistake_qs = set()
+    if 'exam_mode' not in st.session_state:
+        st.session_state.exam_mode = False
+    if 'start_time' not in st.session_state:
+        st.session_state.start_time = None
 
 # --- Load and Process Data ---
 @st.cache_data
@@ -72,7 +77,7 @@ def get_ai_explanation(client, q, user_answer, is_correct):
         return "AI Teacher busy. Please try again!"
 
 # --- UI Components ---
-def display_question_card(q, idx, client, mode):
+def display_question_card(q, idx, client, mode, is_locked=False):
     # Safe access to fields with defaults
     diff = q.get('Difficulty', q.get('difficulty', 'Medium')).lower()
     year = q.get('Year', q.get('year', 'Unknown'))
@@ -96,13 +101,16 @@ def display_question_card(q, idx, client, mode):
         submit_key = f"sub_{q['question_id']}_{mode}"
         has_submitted = submit_key in st.session_state
         
+        # Lock check for Exam Mode
+        actual_lock = has_submitted or is_locked
+
         user_choice = st.radio(f"Select Answer for Q{idx+1}:", list(q['options'].keys()), 
                                format_func=lambda x: f"{x}) {q['options'][x]}",
-                               key=f"rad_{q['question_id']}_{mode}", index=None, disabled=has_submitted)
+                               key=f"rad_{q['question_id']}_{mode}", index=None, disabled=actual_lock)
         
         col1, col2 = st.columns([1, 1])
         with col1:
-            if not has_submitted:
+            if not actual_lock:
                 if st.button(f"Submit Answer", key=f"btn_{q['question_id']}_{mode}"):
                     if user_choice:
                         st.session_state[submit_key] = user_choice
@@ -117,19 +125,24 @@ def display_question_card(q, idx, client, mode):
                                 st.session_state.mistake_qs.add(q['question_id'])
                         st.rerun()
             else:
-                saved = st.session_state[submit_key]
-                if saved == q['correct_answer']:
-                    st.success(f"Correct! The answer is {q['correct_answer']}")
-                else:
-                    st.error(f"Incorrect. The correct answer is {q['correct_answer']}")
-                
-                if st.button("Get AI Insight", key=f"ai_{q['question_id']}_{mode}"):
-                    if client:
-                        with st.spinner("Analyzing..."):
-                            insight = get_ai_explanation(client, q, saved, saved == q['correct_answer'])
-                            st.info(insight)
+                if has_submitted:
+                    saved = st.session_state[submit_key]
+                    if saved == q['correct_answer']:
+                        st.success(f"Correct! The answer is {q['correct_answer']}")
                     else:
-                        st.warning("Connect AI in sidebar for insights!")
+                        st.error(f"Incorrect. The correct answer is {q['correct_answer']}")
+                    
+                    # AI Insight hidden in Exam Mode until finish? 
+                    # For now, let's allow it but label it 'Exam Review'
+                    if st.button("Get AI Insight", key=f"ai_{q['question_id']}_{mode}"):
+                        if client:
+                            with st.spinner("Analyzing..."):
+                                insight = get_ai_explanation(client, q, saved, saved == q['correct_answer'])
+                                st.info(insight)
+                        else:
+                            st.warning("Connect AI in sidebar for insights!")
+                elif is_locked:
+                    st.warning("Time is up! You can no longer submit answers for this exam.")
 
         with col2:
             is_bookmarked = q['question_id'] in st.session_state.bookmarks
@@ -174,11 +187,42 @@ def main():
         sel_subj = st.sidebar.selectbox("Subject", ["All"] + subjects)
         if sel_subj != "All": filtered = [q for q in filtered if q['Subject'] == sel_subj]
         
-        # Real-time Score
-        st.info(f"Score: {st.session_state.correct} / {st.session_state.attempted} (Accuracy: {0 if st.session_state.attempted == 0 else int(st.session_state.correct/st.session_state.attempted*100)}%)")
+        acc = 0 if st.session_state.attempted == 0 else int(st.session_state.correct/st.session_state.attempted*100)
+        st.info(f"Practice Score: {st.session_state.correct} / {st.session_state.attempted} (Accuracy: {acc}%)")
+        
+        # --- Exam Mode Toggle ---
+        st.markdown("---")
+        col_ex1, col_ex2 = st.columns([2, 1])
+        with col_ex1:
+            if not st.session_state.exam_mode:
+                if st.button("🏁 Start 30-Min Exam Simulator"):
+                    st.session_state.exam_mode = True
+                    st.session_state.start_time = __import__('time').time()
+                    st.rerun()
+            else:
+                if st.button("⏹️ Stop Exam"):
+                    st.session_state.exam_mode = False
+                    st.session_state.start_time = None
+                    st.rerun()
+        
+        with col_ex2:
+            if st.session_state.exam_mode and st.session_state.start_time:
+                elapsed = __import__('time').time() - st.session_state.start_time
+                remaining = max(0, 1800 - int(elapsed)) # 30 mins = 1800s
+                mins, secs = divmod(remaining, 60)
+                st.error(f"⏱️ Time Left: {mins:02d}:{secs:02d}")
+                if remaining == 0:
+                    st.warning("⚠️ TIME UP! Exam has been submitted.")
         
         for idx, q in enumerate(filtered):
-            display_question_card(q, idx, client, "practice")
+            # In Exam Mode, we disable 'Get AI Insight' and 'Bookmark' until finished?
+            # Actually let's just make sure they can't change answers if remaining == 0
+            is_locked = False
+            if st.session_state.exam_mode and st.session_state.start_time:
+                if (__import__('time').time() - st.session_state.start_time) >= 1800:
+                    is_locked = True
+            
+            display_question_card(q, idx, client, "practice", is_locked=is_locked)
 
     with tab2:
         st.title("🧠 Review My Mistakes")
