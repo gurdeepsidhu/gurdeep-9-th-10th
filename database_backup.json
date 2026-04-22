@@ -1,0 +1,602 @@
+{
+    "Class 10": {
+        "Science": {
+            "Refraction": [
+                {
+                    "question_id": "SCI-PHY-REF-2018-E-01",
+                    "question_text": "When a ray of light travels from a rarer to a denser medium, it:",
+                    "options": {
+                        "A": "Bends towards the normal",
+                        "B": "Bends away from the normal",
+                        "C": "Goes straight without deviation",
+                        "D": "Reflects back"
+                    },
+                    "correct_answer": "A",
+                    "explanations": {
+                        "basic": "Light slows down when entering a denser medium, causing it to bend towards the normal line.",
+                        "advanced": "According to Snell's law (n1*sin(i) = n2*sin(r)), if n2 > n1 (rarer to denser), then sin(r) must be less than sin(i), meaning angle r is less than angle i, so it bends towards the normal."
+                    },
+                    "year": "CBSE 2018",
+                    "difficulty": "Easy",
+                    "chapter": "Light - Reflection and Refraction"
+                },
+                {
+                    "question_id": "SCI-PHY-REF-2018-M-02",
+                    "question_text": "The refractive index of water is 1.33 and that of glass is 1.5. If light travels from water to glass, it will:",
+                    "options": {
+                        "A": "Bend towards the normal",
+                        "B": "Bend away from the normal",
+                        "C": "Remain undeviated",
+                        "D": "Undergo total internal reflection"
+                    },
+                    "correct_answer": "A",
+                    "explanations": {
+                        "basic": "Glass (1.5) has a higher refractive index than water (1.33), so glass is optically denser. Light traveling from rarer (water) to denser (glass) bends towards the normal.",
+                        "advanced": "The relative refractive index of glass with respect to water is n_gw = n_g / n_w = 1.5 / 1.33 \u2248 1.13. Since n_gw > 1, the ray bends towards the normal."
+                    },
+                    "year": "CBSE 2018",
+                    "difficulty": "Medium",
+                    "chapter": "Light - Reflection and Refraction"
+                },
+                {
+                    "question_id": "SCI-PHY-REF-2018-H-03",
+                    "question_text": "A convex lens forms a real and inverted image of the same size as the object when the object is placed:",
+                    "options": {
+                        "A": "At F",
+                        "B": "Between F and 2F",
+                        "C": "At 2F",
+                        "D": "Beyond 2F"
+                    },
+                    "correct_answer": "C",
+                    "explanations": {
+                        "basic": "For a convex lens, an object placed at 2F (twice the focal length) produces a real, inverted image exactly at 2F on the other side, and of the same size.",
+                        "advanced": "Using the lens formula 1/v - 1/u = 1/f. If u = -2f, then 1/v - (1/-2f) = 1/f => 1/v = 1/f - 1/2f = 1/2f. So v = +2f. Magnification m = v/u = (2f)/(-2f) = -1. The magnitude 1 means same size, and the negative sign means inverted."
+                    },
+                    "year": "CBSE 2018",
+                    "difficulty": "Hard",
+                    "chapter": "Light - Reflection and Refraction"
+                },
+                {
+                    "question_id": "SCI-PHY-REF-2019-E-04",
+                    "question_text": "Twinkling of stars is primarily due to:",
+                    "options": {
+                        "A": "Atmospheric reflection",
+                        "B": "Atmospheric refraction",
+                        "C": "Dispersion of light",
+                        "D": "Scattering of light"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "As starlight enters the Earth's atmosphere, it undergoes continuous refraction because the atmosphere has layers of different optical densities.",
+                        "advanced": "The Earth's atmosphere has varying physical conditions (temperature and density), which continuously change its refractive index. The starlight path fluctuates, causing the apparent position of the star to change slightly and the amount of starlight entering the eye to flicker, which we perceive as twinkling."
+                    },
+                    "year": "CBSE 2019",
+                    "difficulty": "Easy",
+                    "chapter": "Light - Reflection and Refraction"
+                },
+                {
+                    "question_id": "SCI-PHY-REF-2019-M-05",
+                    "question_text": "The law of refraction stating that the ratio of sine of angle of incidence to the sine of angle of refraction is constant is called:",
+                    "options": {
+                        "A": "Newton's law",
+                        "B": "Snell's law",
+                        "C": "Faraday's law",
+                        "D": "Ohm's law"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "This relationship (sin i / sin r = constant) was discovered by Willebrord Snellius and is known as Snell's law of refraction.",
+                        "advanced": "Snell's Law can be mathematically expressed as n1 * sin(\u03b81) = n2 * sin(\u03b82). The constant in the basic formulation (sin i / sin r = n) is the relative refractive index of the second medium with respect to the first."
+                    },
+                    "year": "CBSE 2019",
+                    "difficulty": "Medium",
+                    "chapter": "Light - Reflection and Refraction"
+                },
+                {
+                    "question_id": "SCI-PHY-REF-2019-M-06",
+                    "question_text": "Which of the following materials cannot be used to make a lens?",
+                    "options": {
+                        "A": "Water",
+                        "B": "Glass",
+                        "C": "Plastic",
+                        "D": "Clay"
+                    },
+                    "correct_answer": "D",
+                    "explanations": {
+                        "basic": "A lens must be made of a transparent material so that light can pass through it and refract. Clay is opaque.",
+                        "advanced": "A functional lens requires a material with a consistent refractive index that allows high transmission of visible light. Clay is non-homogeneous and opaque, meaning it completely absorbs or reflects visible light, preventing any controlled refraction."
+                    },
+                    "year": "CBSE 2019",
+                    "difficulty": "Medium",
+                    "chapter": "Light - Reflection and Refraction"
+                },
+                {
+                    "question_id": "SCI-PHY-REF-2020-E-07",
+                    "question_text": "If the magnification produced by a lens has a negative value, the image is:",
+                    "options": {
+                        "A": "Virtual and erect",
+                        "B": "Real and inverted",
+                        "C": "Real and erect",
+                        "D": "Virtual and inverted"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "A negative magnification means the image is flipped upside down (inverted). Inverted images formed by lenses are always real images.",
+                        "advanced": "Magnification m = h'/h. Since the object height h is conventionally taken as positive (above the principal axis), a negative m implies the image height h' is negative (below the principal axis). For lenses, images formed below the principal axis are real and inverted."
+                    },
+                    "year": "CBSE 2020",
+                    "difficulty": "Easy",
+                    "chapter": "Light - Reflection and Refraction"
+                },
+                {
+                    "question_id": "SCI-PHY-REF-2020-H-08",
+                    "question_text": "The power of a lens is -2.0 D. The lens is:",
+                    "options": {
+                        "A": "Convex lens of focal length 50 cm",
+                        "B": "Concave lens of focal length 50 cm",
+                        "C": "Convex lens of focal length 20 cm",
+                        "D": "Concave lens of focal length 20 cm"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "Power is negative, so it's a concave lens. Focal length f = 1/Power. f = 1/-2.0 = -0.5 meters. 0.5 meters is 50 cm.",
+                        "advanced": "Power P = 1/f (in meters). P = -2.0 D means f = -0.5 m = -50 cm. The negative sign conventionally denotes a diverging (concave) lens. This lens would be prescribed for someone suffering from myopia (near-sightedness)."
+                    },
+                    "year": "CBSE 2020",
+                    "difficulty": "Hard",
+                    "chapter": "Light - Reflection and Refraction"
+                },
+                {
+                    "question_id": "SCI-PHY-REF-2021-M-09",
+                    "question_text": "An object is placed at 20 cm from a convex lens of focal length 10 cm. The image is formed at:",
+                    "options": {
+                        "A": "10 cm",
+                        "B": "20 cm",
+                        "C": "30 cm",
+                        "D": "Infinity"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "The focal length is 10 cm, so 20 cm is exactly twice the focal length (2F). For a convex lens, an object at 2F forms an image at 2F on the other side, which is also 20 cm away.",
+                        "advanced": "Applying 1/v - 1/u = 1/f with u = -20 cm, f = +10 cm. 1/v - (1/-20) = 1/10 => 1/v + 1/20 = 1/10 => 1/v = 1/10 - 1/20 = 1/20. Therefore v = +20 cm, proving the image forms at 20 cm on the opposite side."
+                    },
+                    "year": "CBSE 2021",
+                    "difficulty": "Medium",
+                    "chapter": "Light - Reflection and Refraction"
+                },
+                {
+                    "question_id": "SCI-PHY-REF-2021-H-10",
+                    "question_text": "The speed of light in a transparent medium is 2 x 10^8 m/s. The refractive index of the medium is (speed of light in vacuum = 3 x 10^8 m/s):",
+                    "options": {
+                        "A": "1.5",
+                        "B": "0.66",
+                        "C": "1.33",
+                        "D": "2.0"
+                    },
+                    "correct_answer": "A",
+                    "explanations": {
+                        "basic": "Refractive index = (Speed of light in vacuum) / (Speed of light in medium). So, (3 x 10^8) / (2 x 10^8) = 3/2 = 1.5.",
+                        "advanced": "Absolute refractive index (n) measures how much a medium slows down light relative to a vacuum. n = c/v. Here n = (3.0 * 10^8 m/s) / (2.0 * 10^8 m/s) = 1.5. This is typically the refractive index of glass."
+                    },
+                    "year": "CBSE 2021",
+                    "difficulty": "Hard",
+                    "chapter": "Light - Reflection and Refraction"
+                }
+            ],
+            "Electricity": [
+                {
+                    "question_id": "SCI-PHY-ELE-2023-E-16",
+                    "question_text": "According to Ohm's law, if the resistance of a conductor is doubled while keeping the potential difference constant, the current will become:",
+                    "options": {
+                        "A": "Double",
+                        "B": "Half",
+                        "C": "One-fourth",
+                        "D": "Remain the same"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "Since V = IR, if V is constant and R is doubled (2R), the current I must become half (I/2) to balance the equation.",
+                        "advanced": "I = V/R. If R' = 2R, then I' = V/(2R) = 1/2 * (V/R) = 1/2 * I. This demonstrates the inverse relationship between current and resistance."
+                    },
+                    "year": "CBSE 2023",
+                    "difficulty": "Easy",
+                    "chapter": "Electricity"
+                },
+                {
+                    "question_id": "SCI-PHY-ELE-2022-M-17",
+                    "question_text": "Which of the following represents the correct formula for Electric Power (P) in terms of Voltage (V) and Resistance (R)?",
+                    "options": {
+                        "A": "P = V * R",
+                        "B": "P = V^2 / R",
+                        "C": "P = I^2 * V",
+                        "D": "P = V / R^2"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "Electric power can be calculated using the square of the voltage divided by the resistance (V\u00b2/R).",
+                        "advanced": "Starting from P = VI and substituting I = V/R from Ohm's law, we get P = V * (V/R) = V\u00b2/R. This formula is useful when the voltage is constant."
+                    },
+                    "year": "CBSE 2022",
+                    "difficulty": "Medium",
+                    "chapter": "Electricity"
+                },
+                {
+                    "question_id": "SCI-PHY-ELE-2021-H-18",
+                    "question_text": "A wire of resistance R is cut into five equal pieces. These pieces are then connected in parallel. If the equivalent resistance of this combination is R', then the ratio R/R' is:",
+                    "options": {
+                        "A": "1/25",
+                        "B": "1/5",
+                        "C": "5",
+                        "D": "25"
+                    },
+                    "correct_answer": "D",
+                    "explanations": {
+                        "basic": "Cutting the wire makes each piece R/5. Connecting 5 such pieces in parallel makes the total resistance (R/5)/5 = R/25. The ratio R / (R/25) is 25.",
+                        "advanced": "Each piece has resistance r = R/5. In parallel, 1/R' = 1/r + 1/r + 1/r + 1/r + 1/r = 5/r = 5 / (R/5) = 25/R. Therefore, R/R' = 25."
+                    },
+                    "year": "CBSE 2021",
+                    "difficulty": "Hard",
+                    "chapter": "Electricity"
+                }
+            ],
+            "Chemical Reactions and Equations": [
+                {
+                    "question_id": "SCI-CHM-REA-2023-M-13",
+                    "question_text": "When calcium oxide reacts vigorously with water to form calcium hydroxide, it is an example of:",
+                    "options": {
+                        "A": "Combination reaction",
+                        "B": "Decomposition reaction",
+                        "C": "Displacement reaction",
+                        "D": "Double displacement reaction"
+                    },
+                    "correct_answer": "A",
+                    "explanations": {
+                        "basic": "Two reactants (CaO and H2O) combine to form a single product [Ca(OH)2], which is a combination reaction.",
+                        "advanced": "CaO(s) + H2O(l) \u2192 Ca(OH)2(aq) + Heat. This is also an exothermic reaction as a large amount of heat is released."
+                    },
+                    "year": "CBSE 2023",
+                    "difficulty": "Medium",
+                    "chapter": "Chemical Reactions and Equations"
+                },
+                {
+                    "question_id": "SCI-CHM-CRE-2023-E-19",
+                    "question_text": "Which of the following is a physical change?",
+                    "options": {
+                        "A": "Burning of wood",
+                        "B": "Melting of ice",
+                        "C": "Rusting of iron",
+                        "D": "Cooking of food"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "Melting of ice is a physical change because only the state of water changes (solid to liquid), and no new chemical substance is formed.",
+                        "advanced": "Physical changes involve changes in physical properties like state, shape, or size without altering the molecular composition. Burning, rusting, and cooking are chemical changes as they involve chemical reactions and formation of new substances."
+                    },
+                    "year": "CBSE 2023",
+                    "difficulty": "Easy",
+                    "chapter": "Chemical Reactions and Equations"
+                },
+                {
+                    "question_id": "SCI-CHM-CRE-2022-M-20",
+                    "question_text": "The brown gas evolved during the thermal decomposition of lead nitrate is:",
+                    "options": {
+                        "A": "Oxygen",
+                        "B": "Nitrogen",
+                        "C": "Nitrogen dioxide",
+                        "D": "Nitrogen monoxide"
+                    },
+                    "correct_answer": "C",
+                    "explanations": {
+                        "basic": "When lead nitrate is heated, it breaks down and releases nitrogen dioxide, which is a reddish-brown gas.",
+                        "advanced": "2Pb(NO3)2(s) \u2192 2PbO(s) + 4NO2(g) + O2(g). The NO2 gas is responsible for the characteristic brown fumes observed during this decomposition reaction."
+                    },
+                    "year": "CBSE 2022",
+                    "difficulty": "Medium",
+                    "chapter": "Chemical Reactions and Equations"
+                },
+                {
+                    "question_id": "SCI-CHM-CRE-2021-H-21",
+                    "question_text": "A student adds iron nails to a solution of copper sulphate. After some time, the blue color of the solution fades and a reddish-brown deposit is seen. This is a:",
+                    "options": {
+                        "A": "Combination reaction",
+                        "B": "Decomposition reaction",
+                        "C": "Displacement reaction",
+                        "D": "Double displacement reaction"
+                    },
+                    "correct_answer": "C",
+                    "explanations": {
+                        "basic": "Iron is more reactive than copper, so it displaces copper from the copper sulphate solution. This is a displacement reaction.",
+                        "advanced": "Fe(s) + CuSO4(aq) \u2192 FeSO4(aq) + Cu(s). The blue color of CuSO4 fades as green FeSO4 forms, and the reddish-brown deposit is the displaced copper metal."
+                    },
+                    "year": "CBSE 2021",
+                    "difficulty": "Hard",
+                    "chapter": "Chemical Reactions and Equations"
+                }
+            ],
+            "Acids, Bases and Salts": [
+                {
+                    "question_id": "SCI-CHM-PH-2023-E-11",
+                    "question_text": "The pH of a neutral solution at 25\u00b0C is:",
+                    "options": {
+                        "A": "0",
+                        "B": "7",
+                        "C": "14",
+                        "D": "1"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "On the pH scale, a value of 7 indicates a neutral solution (neither acidic nor basic).",
+                        "advanced": "pH is defined as -log10[H+]. At 25\u00b0C, pure water has [H+] = 10^-7 mol/L, thus pH = 7."
+                    },
+                    "year": "CBSE 2023",
+                    "difficulty": "Easy",
+                    "chapter": "Acids, Bases and Salts"
+                },
+                {
+                    "question_id": "SCI-CHM-ABS-2023-E-22",
+                    "question_text": "When a drop of phenolphthalein is added to an acidic solution, the color of the solution becomes:",
+                    "options": {
+                        "A": "Pink",
+                        "B": "Yellow",
+                        "C": "Colorless",
+                        "D": "Blue"
+                    },
+                    "correct_answer": "C",
+                    "explanations": {
+                        "basic": "Phenolphthalein is a colorless indicator that stays colorless in acidic solutions but turns pink in basic solutions.",
+                        "advanced": "Phenolphthalein is a weak acid itself. In acidic environments (high H+ concentration), the equilibrium shifts towards the non-ionized colorless form."
+                    },
+                    "year": "CBSE 2023",
+                    "difficulty": "Easy",
+                    "chapter": "Acids, Bases and Salts"
+                },
+                {
+                    "question_id": "SCI-CHM-ABS-2022-M-23",
+                    "question_text": "The gas evolved when sodium carbonate reacts with dilute hydrochloric acid is:",
+                    "options": {
+                        "A": "Hydrogen",
+                        "B": "Oxygen",
+                        "C": "Carbon dioxide",
+                        "D": "Chlorine"
+                    },
+                    "correct_answer": "C",
+                    "explanations": {
+                        "basic": "Reacting a metal carbonate with an acid always produces carbon dioxide gas, which turns lime water milky.",
+                        "advanced": "Na2CO3(s) + 2HCl(aq) \u2192 2NaCl(aq) + H2O(l) + CO2(g). The evolution of CO2 with brisk effervescence is a characteristic test for carbonates."
+                    },
+                    "year": "CBSE 2022",
+                    "difficulty": "Medium",
+                    "chapter": "Acids, Bases and Salts"
+                },
+                {
+                    "question_id": "SCI-CHM-ABS-2021-H-24",
+                    "question_text": "What is the chemical formula of Plaster of Paris?",
+                    "options": {
+                        "A": "CaSO4 \u00b7 2H2O",
+                        "B": "CaSO4 \u00b7 1/2H2O",
+                        "C": "CaSO4 \u00b7 H2O",
+                        "D": "Na2CO3 \u00b7 10H2O"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "Plaster of Paris is calcium sulphate hemihydrate, meaning it has half a molecule of water for every calcium sulphate molecule.",
+                        "advanced": "Plaster of Paris (CaSO4 \u00b7 1/2H2O) is obtained by heating Gypsum (CaSO4 \u00b7 2H2O) at 373 K. It has the property of setting into a hard mass when mixed with water."
+                    },
+                    "year": "CBSE 2021",
+                    "difficulty": "Hard",
+                    "chapter": "Acids, Bases and Salts"
+                }
+            ],
+            "Biology": {
+                "Life Processes": [
+                    {
+                        "question_id": "SCI-BIO-LP-2023-E-25",
+                        "question_text": "The process by which green plants make their own food is called:",
+                        "options": {
+                            "A": "Respiration",
+                            "B": "Transpiration",
+                            "C": "Photosynthesis",
+                            "D": "Digestion"
+                        },
+                        "correct_answer": "C",
+                        "explanations": {
+                            "basic": "Green plants use sunlight, water, and CO2 to create food (glucose) in a process called photosynthesis.",
+                            "advanced": "6CO2 + 12H2O + Light \u2192 C6H12O6 + 6O2 + 6H2O. This takes place in the chloroplasts of the leaf cells."
+                        },
+                        "year": "CBSE 2023",
+                        "difficulty": "Easy",
+                        "chapter": "Life Processes"
+                    },
+                    {
+                        "question_id": "SCI-BIO-LP-2022-M-26",
+                        "question_text": "Which chamber of the human heart receives oxygenated blood from the lungs?",
+                        "options": {
+                            "A": "Right Atrium",
+                            "B": "Left Atrium",
+                            "C": "Right Ventricle",
+                            "D": "Left Ventricle"
+                        },
+                        "correct_answer": "B",
+                        "explanations": {
+                            "basic": "Oxygen-rich blood comes from the lungs and enters the Left Atrium of the heart first.",
+                            "advanced": "The pulmonary vein carries oxygenated blood from the lungs to the left atrium. From there, it moves to the left ventricle to be pumped to the rest of the body."
+                        },
+                        "year": "CBSE 2022",
+                        "difficulty": "Medium",
+                        "chapter": "Life Processes"
+                    },
+                    {
+                        "question_id": "SCI-BIO-LP-2021-H-27",
+                        "question_text": "The breakdown of pyruvate to give carbon dioxide, water and energy takes place in:",
+                        "options": {
+                            "A": "Cytoplasm",
+                            "B": "Mitochondria",
+                            "C": "Chloroplast",
+                            "D": "Nucleus"
+                        },
+                        "correct_answer": "B",
+                        "explanations": {
+                            "basic": "While the first step of breaking down glucose happens in the cytoplasm, the final energy release happens in the mitochondria (the powerhouse of the cell).",
+                            "advanced": "Aerobic respiration involves the oxidation of pyruvate in the mitochondria. This process produces significantly more ATP than anaerobic respiration."
+                        },
+                        "year": "CBSE 2021",
+                        "difficulty": "Hard",
+                        "chapter": "Life Processes"
+                    }
+                ],
+                "Control and Coordination": [
+                    {
+                        "question_id": "SCI-BIO-CC-2023-E-28",
+                        "question_text": "The gap between two neurons is called a:",
+                        "options": {
+                            "A": "Dendrite",
+                            "B": "Synapse",
+                            "C": "Axon",
+                            "D": "Impulse"
+                        },
+                        "correct_answer": "B",
+                        "explanations": {
+                            "basic": "Information travels across the tiny gap between two nerve cells called a synapse.",
+                            "advanced": "At the synapse, electrical signals are converted into chemical signals (neurotransmitters) to cross the gap and reach the next neuron."
+                        },
+                        "year": "CBSE 2023",
+                        "difficulty": "Easy",
+                        "chapter": "Control and Coordination"
+                    },
+                    {
+                        "question_id": "SCI-BIO-CC-2022-M-29",
+                        "question_text": "Which plant hormone is primarily responsible for the growth of the stem?",
+                        "options": {
+                            "A": "Auxin",
+                            "B": "Gibberellin",
+                            "C": "Cytokinin",
+                            "D": "Abscisic acid"
+                        },
+                        "correct_answer": "B",
+                        "explanations": {
+                            "basic": "Gibberellins are the main hormones that help in the growth and elongation of the stem in plants.",
+                            "advanced": "Gibberellins promote cell division and cell elongation in stems. Auxins also help, but their primary role is apical dominance and phototropism."
+                        },
+                        "year": "CBSE 2022",
+                        "difficulty": "Medium",
+                        "chapter": "Control and Coordination"
+                    },
+                    {
+                        "question_id": "SCI-BIO-CC-2021-H-30",
+                        "question_text": "The part of the brain responsible for maintaining posture and balance of the body is:",
+                        "options": {
+                            "A": "Cerebrum",
+                            "B": "Cerebellum",
+                            "C": "Medulla",
+                            "D": "Pons"
+                        },
+                        "correct_answer": "B",
+                        "explanations": {
+                            "basic": "The cerebellum (located at the back of the brain) is in charge of your balance, posture, and precise movements like cycling.",
+                            "advanced": "The cerebellum is part of the hindbrain. It coordinates voluntary movements such as posture, balance, coordination, and speech, resulting in smooth and balanced muscular activity."
+                        },
+                        "year": "CBSE 2021",
+                        "difficulty": "Hard",
+                        "chapter": "Control and Coordination"
+                    }
+                ]
+            },
+            "Board Mix": [
+                {
+                    "question_id": "SCI-BIO-KID-2022-M-14",
+                    "question_text": "The functional unit of the human kidney is called:",
+                    "options": {
+                        "A": "Neuron",
+                        "B": "Nephron",
+                        "C": "Alveoli",
+                        "D": "Ureter"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "Nephrons are tiny filtering units in the kidneys that remove waste from the blood.",
+                        "advanced": "Each kidney contains about 1 million nephrons. They consist of a renal corpuscle (Glomerulus and Bowman's capsule) and a renal tubule."
+                    },
+                    "year": "CBSE 2022",
+                    "difficulty": "Medium",
+                    "chapter": "Life Processes"
+                },
+                {
+                    "question_id": "SCI-PHY-EYE-2023-E-15",
+                    "question_text": "The near point of a normal human eye is at a distance of:",
+                    "options": {
+                        "A": "2.5 cm",
+                        "B": "25 cm",
+                        "C": "2.5 m",
+                        "D": "Infinity"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "For a normal adult eye, the closest distance at which objects can be seen clearly without strain is 25 cm.",
+                        "advanced": "The near point is the point at which the ciliary muscles are at their maximum contraction to increase the curvature of the lens for focusing close objects."
+                    },
+                    "year": "CBSE 2023",
+                    "difficulty": "Easy",
+                    "chapter": "Human Eye and Colorful World"
+                }
+            ]
+        },
+        "Mathematics": {
+            "Quadratic Equations": [
+                {
+                    "question_id": "MAT-QE-2023-E-31",
+                    "question_text": "If the discriminant of a quadratic equation ax^2 + bx + c = 0 is greater than zero, the roots are:",
+                    "options": {
+                        "A": "Real and equal",
+                        "B": "Real and distinct",
+                        "C": "No real roots",
+                        "D": "Imaginary"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "If D > 0, the equation has two different (distinct) real numbers as its solutions.",
+                        "advanced": "The discriminant D = b^2 - 4ac determines the nature of roots. D > 0 implies two distinct real roots, D = 0 implies two equal real roots, and D < 0 implies no real roots."
+                    },
+                    "year": "CBSE 2023",
+                    "difficulty": "Easy",
+                    "chapter": "Quadratic Equations"
+                },
+                {
+                    "question_id": "MAT-QE-2022-M-32",
+                    "question_text": "Find the roots of the quadratic equation x^2 - 5x + 6 = 0.",
+                    "options": {
+                        "A": "2 and 3",
+                        "B": "-2 and -3",
+                        "C": "1 and 6",
+                        "D": "-1 and -6"
+                    },
+                    "correct_answer": "A",
+                    "explanations": {
+                        "basic": "We need to find two numbers that multiply to 6 and add up to -5. Those numbers are -2 and -3. So (x-2)(x-3) = 0, which gives x = 2 or 3.",
+                        "advanced": "Using factorization: x^2 - 3x - 2x + 6 = 0 => x(x-3) - 2(x-3) = 0 => (x-2)(x-3) = 0. Therefore, the roots are 2 and 3."
+                    },
+                    "year": "CBSE 2022",
+                    "difficulty": "Medium",
+                    "chapter": "Quadratic Equations"
+                },
+                {
+                    "question_id": "MAT-QE-2021-H-33",
+                    "question_text": "The values of k for which the quadratic equation 2x^2 + kx + 3 = 0 has two equal roots is:",
+                    "options": {
+                        "A": "2\u221a6",
+                        "B": "\u00b12\u221a6",
+                        "C": "\u00b1\u221a6",
+                        "D": "0"
+                    },
+                    "correct_answer": "B",
+                    "explanations": {
+                        "basic": "For equal roots, the discriminant (b^2 - 4ac) must be zero. Here, k^2 - 4(2)(3) = 0, so k^2 = 24.",
+                        "advanced": "D = b^2 - 4ac = 0. k^2 - 4(2)(3) = 0 => k^2 - 24 = 0 => k^2 = 24 => k = \u00b1\u221a24 = \u00b12\u221a6."
+                    },
+                    "year": "CBSE 2021",
+                    "difficulty": "Hard",
+                    "chapter": "Quadratic Equations"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "chapter_title": "Linear Equations in Two Variables",
+    "class": "Class 9",
+    "practice_questions": [
+      {"question": "How many solutions does the equation $2x + 3y = 5$ have?", "options": ["A) One", "B) Two", "C) Infinitely many", "D) None"], "correct_answer": "C) Infinitely many", "step_by_step_explanation": "Step 1: A linear equation in two variables represents a line. Step 2: Every point on the line is a solution. Step 3: A line has infinite points."},
+      {"question": "The graph of $y = 5$ is a line parallel to:", "options": ["A) x-axis", "B) y-axis", "C) Origin", "D) None"], "correct_answer": "A) x-axis", "step_by_step_explanation": "Step 1: In $y=5$, the y-coordinate is constant. Step 2: This means the line is horizontal. Step 3: A horizontal line is parallel to the x-axis."},
+      {"question": "Find the value of $k$ if $(2, 1)$ is a solution of $2x + 3y = k$.", "options": ["A) 5", "B) 7", "C) 1", "D) 10"], "correct_answer": "B) 7", "step_by_step_explanation": "Step 1: Substitute $x=2$ and $y=1$. Step 2: $2(2) + 3(1) = 4 + 3 = 7$. Step 3: So $k=7$."}
+    ]
+  },
+  {
+    "chapter_title": "Introduction to Euclid\u2019s Geometry",
+    "class": "Class 9",
+    "practice_questions": [
+      {"question": "The number of dimensions a solid has is:", "options": ["A) 1", "B) 2", "C) 3", "D) 0"], "correct_answer": "C) 3", "step_by_step_explanation": "Step 1: A solid has length, width, and height. Step 2: Therefore, it has 3 dimensions."},
+      {"question": "According to Euclid's Axioms, things which are equal to the same thing are:", "options": ["A) Half of each other", "B) Double of each other", "C) Equal to one another", "D) Parallel"], "correct_answer": "C) Equal to one another", "step_by_step_explanation": "Step 1: This is Euclid's First Axiom."},
+      {"question": "A straight line may be drawn from any one point to:", "options": ["A) Only one other point", "B) Any other point", "C) No other point", "D) Infinite points"], "correct_answer": "B) Any other point", "step_by_step_explanation": "Step 1: This is Euclid's Postulate 1."}
+    ]
+  },
+  {
+    "chapter_title": "Lines and Angles",
+    "class": "Class 9",
+    "practice_questions": [
+      {"question": "If two lines intersect, the vertically opposite angles are:", "options": ["A) Supplementary", "B) Complementary", "C) Equal", "D) Unequal"], "correct_answer": "C) Equal", "step_by_step_explanation": "Step 1: Vertically opposite angles formed by intersecting lines are always equal."},
+      {"question": "The sum of angles of a triangle is:", "options": ["A) $90^\\circ$", "B) $180^\\circ$", "C) $270^\\circ$", "D) $360^\\circ$"], "correct_answer": "B) $180^\\circ$", "step_by_step_explanation": "Step 1: This is the angle sum property of a triangle."},
+      {"question": "An angle which is equal to its supplement is:", "options": ["A) $45^\\circ$", "B) $60^\\circ$", "C) $90^\\circ$", "D) $180^\\circ$"], "correct_answer": "C) $90^\\circ$", "step_by_step_explanation": "Step 1: Let the angle be $x$. Step 2: $x + x = 180$. Step 3: $2x = 180 \\Rightarrow x = 90$."}
+    ]
+  },
+  {
+    "chapter_title": "Triangles",
+    "class": "Class 9",
+    "practice_questions": [
+      {"question": "Which is not a criterion for congruence of triangles?", "options": ["A) SAS", "B) ASA", "C) SSA", "D) SSS"], "correct_answer": "C) SSA", "step_by_step_explanation": "Step 1: SAS, ASA, SSS, and RHS are valid. Step 2: SSA (Side-Side-Angle) is not a guaranteed congruence criterion."},
+      {"question": "In an isosceles triangle, the angles opposite to equal sides are:", "options": ["A) Unequal", "B) Supplementary", "C) Equal", "D) Complementary"], "correct_answer": "C) Equal", "step_by_step_explanation": "Step 1: This is a fundamental property of isosceles triangles."},
+      {"question": "Each angle of an equilateral triangle is:", "options": ["A) $30^\\circ$", "B) $45^\\circ$", "C) $60^\\circ$", "D) $90^\\circ$"], "correct_answer": "C) $60^\\circ$", "step_by_step_explanation": "Step 1: All sides and angles are equal. Step 2: $180 / 3 = 60$."}
+    ]
+  },
+  {
+    "chapter_title": "Quadrilaterals",
+    "class": "Class 9",
+    "practice_questions": [
+      {"question": "A quadrilateral whose opposite sides are parallel is called a:", "options": ["A) Trapezium", "B) Parallelogram", "C) Kite", "D) None"], "correct_answer": "B) Parallelogram", "step_by_step_explanation": "Step 1: By definition, a parallelogram has two pairs of parallel opposite sides."},
+      {"question": "The diagonals of a rhombus bisect each other at:", "options": ["A) $45^\\circ$", "B) $60^\\circ$", "C) $90^\\circ$", "D) $180^\\circ$"], "correct_answer": "C) $90^\\circ$", "step_by_step_explanation": "Step 1: Diagonals of a rhombus are perpendicular bisectors of each other."},
+      {"question": "If three angles of a quadrilateral are $75^\\circ, 90^\\circ, 75^\\circ$, then the fourth angle is:", "options": ["A) $90^\\circ$", "B) $95^\\circ$", "C) $105^\\circ$", "D) $120^\\circ$"], "correct_answer": "D) $120^\\circ$", "step_by_step_explanation": "Step 1: Sum $= 360$. Step 2: $360 - (75+90+75) = 360 - 240 = 120$."}
+    ]
+  }
+]

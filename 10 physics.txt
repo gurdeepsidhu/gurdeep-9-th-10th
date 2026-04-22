@@ -1,0 +1,11 @@
+Serial,Chapter Name
+01,Light: Reflection and Refraction
+02,The Human Eye and the Colourful World
+03,Electricity
+04,Magnetic Effects of Electric Current
+05,Sources of Energy
+
+
+Chapter 1: Light – Reflection and Refraction
+Summary:
+"Light is the invisible energy that allows us to see the world, traveling in straight lines unless it hits an obstacle. This chapter explores how light bounces off surfaces—a phenomenon called Reflection—which allows us to see images in mirrors. We also explore Refraction, which is the bending of light as it passes from one medium to another (like from air to glass). By mastering these concepts, we understand how mirrors and lenses work together to shape our vision and technology, from the simple camera to the human eye itself."

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "subject": "Physics",
+    "chapter": "Refraction",
+    "difficulty": "Easy",
+    "question": "When a ray of light travels from a rarer to a denser medium, it:",
+    "options": [
+      "A) Bends towards the normal",
+      "B) Bends away from the normal",
+      "C) Goes straight without deviation",
+      "D) Reflects back"
+    ],
+    "correct_answer": "A) Bends towards the normal",
+    "explanation": "When light travels from a rarer medium to a denser medium, it bends towards the normal because light travels slower in the denser medium."
+  },
+  {
+    "id": 2,
+    "subject": "Mathematics",
+    "chapter": "Algebra",
+    "difficulty": "Easy",
+    "question": "What is the value of x if 2x + 5 = 15?",
+    "options": [
+      "A) 3",
+      "B) 5",
+      "C) 7",
+      "D) 10"
+    ],
+    "correct_answer": "B) 5",
+    "explanation": "Subtract 5 from both sides to get 2x = 10, then divide by 2 to get x = 5."
+  }
+]
