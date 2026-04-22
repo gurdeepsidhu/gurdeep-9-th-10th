@@ -3397,7 +3397,7 @@
         "content": "A 15-year-old thief (Hari Singh) befriends a kind writer named Anil. <ul><li><b>The Trust:</b> Anil teaches Hari to read, write, and cook.</li><li><b>The Theft:</b> Hari steals Anil's money but returns it because he realizes the value of education and Anil's trust.</li><li><b>Transformation:</b> Hari decides to leave his criminal life for a better future.</li></ul>"
     },
     {
-        "question_id": "ENG-THE-1",
+        "question_id": "ENG-THE-1-fixed-0",
         "question_text": "What was Anil's profession?",
         "options": {
             "A": "Doctor",
@@ -3422,7 +3422,7 @@
         "content": "Matilda Loisel, a pretty but dissatisfied woman, borrows a diamond necklace for a ball. <ul><li><b>The Loss:</b> She loses the necklace and spends 10 years in poverty to replace it.</li><li><b>The Irony:</b> She later discovers that the original necklace was fake (cost only 500 francs).</li></ul>"
     },
     {
-        "question_id": "ENG-THE-1",
+        "question_id": "ENG-THE-1-fixed-1",
         "question_text": "How many years did the Loisels spend repaying the debt?",
         "options": {
             "A": "5 years",
@@ -5855,7 +5855,7 @@
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Lost Child",
         "title": "The Lost Child Summary",
         "content": "A story about a child's deep bond with his parents. <ul><li><b>Setting:</b> A spring fair.</li><li><b>Desire:</b> The child wants toys, sweets, and flowers but his parents refuse.</li><li><b>Crisis:</b> He gets lost and realized that he doesn't want anything except his parents.</li></ul>"
@@ -5878,13 +5878,13 @@
         "difficulty": "Medium",
         "chapter": "The Lost Child",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Lost Child"
     },
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Adventures of Toto",
         "title": "The Adventures of Toto Summary",
         "content": "The antics of a mischievous monkey named Toto. <ul><li><b>Arrival:</b> Grandfather buys him for five rupees from a tonga-driver.</li><li><b>Mischief:</b> Tearing curtains, breaking dishes, and scaring the pets.</li><li><b>Departure:</b> Grandfather realizes Toto is too troublesome and sells him back.</li></ul>"
@@ -5907,13 +5907,13 @@
         "difficulty": "Medium",
         "chapter": "The Adventures of Toto",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Adventures of Toto"
     },
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "Iswaran the Storyteller",
         "title": "Iswaran the Storyteller Summary",
         "content": "Iswaran's talent for weaving vivid and scary stories. <ul><li><b>Mahendra:</b> The supervisor who listens to Iswaran.</li><li><b>The Ghost:</b> Iswaran tells a story about a female ghost.</li><li><b>The Result:</b> Mahendra becomes so scared that he quits his job and leaves.</li></ul>"
@@ -5936,13 +5936,13 @@
         "difficulty": "Medium",
         "chapter": "Iswaran the Storyteller",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "Iswaran the Storyteller"
     },
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "In the Kingdom of Fools",
         "title": "In the Kingdom of Fools Summary",
         "content": "A Kannada folk tale about a kingdom where day is night and night is day. <ul><li><b>The Rule:</b> Everything costs the same (one duddu).</li><li><b>The Guru:</b> A wise man who realizes the danger and leaves, while his disciple stays for the cheap food.</li><li><b>The Rescue:</b> The Guru returns to save his disciple from execution using his wit.</li></ul>"
@@ -5965,13 +5965,13 @@
         "difficulty": "Medium",
         "chapter": "In the Kingdom of Fools",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "In the Kingdom of Fools"
     },
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Happy Prince",
         "title": "The Happy Prince Summary",
         "content": "The sacrifice of a statue and a swallow. <ul><li><b>The Prince:</b> A gold-covered statue with sapphire eyes and a ruby sword.</li><li><b>The Swallow:</b> Helps the Prince distribute his wealth to the poor.</li><li><b>Ending:</b> Both die, but God's angels take them to heaven as the most precious things in the city.</li></ul>"
@@ -5994,13 +5994,13 @@
         "difficulty": "Medium",
         "chapter": "The Happy Prince",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Happy Prince"
     },
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "Weathering the Storm in Ersama",
         "title": "Weathering the Storm in Ersama Summary",
         "content": "Prashant's leadership during a devastating cyclone in Odisha. <ul><li><b>The Cyclone:</b> Destroys villages and leaves many homeless.</li><li><b>The Hero:</b> Prashant organizes the youth, arranges food, and sets up shelters.</li><li><b>Theme:</b> Resilience and community service.</li></ul>"
@@ -6023,13 +6023,13 @@
         "difficulty": "Medium",
         "chapter": "Weathering the Storm in Ersama",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "Weathering the Storm in Ersama"
     },
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Last Leaf",
         "title": "The Last Leaf Summary",
         "content": "O. Henry's story about art and hope. <ul><li><b>Johnsy:</b> Suffering from pneumonia, she believes she will die when the last leaf falls from the ivy vine.</li><li><b>Behrman:</b> An old artist who paints a fake leaf during a storm to save Johnsy's life.</li><li><b>The Masterpiece:</b> The painted leaf is Behrman's masterpiece, though it costs him his life.</li></ul>"
@@ -6052,7 +6052,7 @@
         "difficulty": "Medium",
         "chapter": "The Last Leaf",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Last Leaf"
     },
     {
@@ -6087,7 +6087,7 @@
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Accidental Tourist",
         "title": "The Accidental Tourist Summary",
         "content": "Bill Bryson's humorous account of his travel mishaps. <ul><li><b>Clumsiness:</b> Zipping his finger into a bag, spilling drinks, and getting ink all over himself.</li><li><b>The Theme:</b> The struggle of an ordinary man to navigate the complex world of modern travel.</li></ul>"
@@ -6110,13 +6110,13 @@
         "difficulty": "Medium",
         "chapter": "The Accidental Tourist",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Accidental Tourist"
     },
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Beggar",
         "title": "The Beggar Summary",
         "content": "The transformation of Lushkoff, a beggar. <ul><li><b>Sergei:</b> An advocate who tries to help Lushkoff by giving him work.</li><li><b>Olga:</b> Sergei's cook, who secretly does the work for Lushkoff while scolding him.</li><li><b>The Result:</b> Olga's compassion and words change Lushkoff's heart, leading him to lead a respectable life.</li></ul>"
@@ -6139,13 +6139,13 @@
         "difficulty": "Medium",
         "chapter": "The Beggar",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Beggar"
     },
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Road Not Taken",
         "title": "The Road Not Taken Summary",
         "content": "A poem about making choices and their lifelong impact. <ul><li><b>The Divergence:</b> The speaker stands at a point where two roads diverge in a yellow wood.</li><li><b>The Choice:</b> He chooses the less traveled road, knowing he can't return.</li><li><b>Theme:</b> Choices shape our future.</li></ul>"
@@ -6168,13 +6168,13 @@
         "difficulty": "Medium",
         "chapter": "The Road Not Taken",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Road Not Taken"
     },
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "Wind",
         "title": "Wind Summary",
         "content": "A poem that symbolizes the challenges of life as the wind. <ul><li><b>Destruction:</b> The wind breaks shutters and scatters papers.</li><li><b>Strength:</b> The poet suggests we should build strong houses and strong hearts.</li><li><b>Message:</b> If we are strong, the wind (troubles) will become our friend.</li></ul>"
@@ -6197,13 +6197,13 @@
         "difficulty": "Medium",
         "chapter": "Wind",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "Wind"
     },
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "Rain on the Roof",
         "title": "Rain on the Roof Summary",
         "content": "The soothing and nostalgic effect of rain. <ul><li><b>Setting:</b> Lying in a cottage chamber bed.</li><li><b>Memories:</b> The sound of rain brings back memories of the poet's mother.</li><li><b>Theme:</b> The healing power of nature.</li></ul>"
@@ -6226,13 +6226,13 @@
         "difficulty": "Medium",
         "chapter": "Rain on the Roof",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "Rain on the Roof"
     },
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Lake Isle of Innisfree",
         "title": "The Lake Isle of Innisfree Summary",
         "content": "A poem about the poet's desire for peace in nature. <ul><li><b>Innisfree:</b> A place where he wants to build a small cabin and live alone.</li><li><b>Nature:</b> Honey bees, cricket's song, and the lapping water.</li><li><b>Theme:</b> Escape from city life to natural tranquility.</li></ul>"
@@ -6255,13 +6255,13 @@
         "difficulty": "Medium",
         "chapter": "The Lake Isle of Innisfree",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "The Lake Isle of Innisfree"
     },
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "A Legend of the Northland",
         "title": "A Legend of the Northland Summary",
         "content": "A ballad about greed and its consequences. <ul><li><b>Saint Peter:</b> Asks a little woman for a piece of cake.</li><li><b>Greed:</b> She finds every cake too large to give away.</li><li><b>Curse:</b> Saint Peter turns her into a woodpecker.</li></ul>"
@@ -6284,13 +6284,13 @@
         "difficulty": "Medium",
         "chapter": "A Legend of the Northland",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "A Legend of the Northland"
     },
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "No Men Are Foreign",
         "title": "No Men Are Foreign Summary",
         "content": "A poem advocating for universal brotherhood. <ul><li><b>Commonalities:</b> All humans breathe the same air, drink the same water, and walk on the same earth.</li><li><b>Message:</b> Hatred against others is hatred against ourselves.</li><li><b>Theme:</b> Humanity is one.</li></ul>"
@@ -6313,13 +6313,13 @@
         "difficulty": "Medium",
         "chapter": "No Men Are Foreign",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "No Men Are Foreign"
     },
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "On Killing a Tree",
         "title": "On Killing a Tree Summary",
         "content": "The resilience of trees and the difficulty of killing them. <ul><li><b>Process:</b> It takes much time to kill a tree; a simple jab won't do.</li><li><b>Root:</b> To kill it, the root must be pulled out and exposed to the sun.</li><li><b>Theme:</b> Environmental awareness and the strength of nature.</li></ul>"
@@ -6342,13 +6342,13 @@
         "difficulty": "Medium",
         "chapter": "On Killing a Tree",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "On Killing a Tree"
     },
     {
         "type": "Summary",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "A Slumber Did My Spirit Seal",
         "title": "A Slumber Did My Spirit Seal Summary",
         "content": "A short, deep poem about loss and nature. <ul><li><b>Loss:</b> The poet's loved one has died.</li><li><b>Transformation:</b> She is now part of the earth's diurnal course, rolled round with rocks and stones and trees.</li><li><b>Theme:</b> Eternal peace after death.</li></ul>"
@@ -6371,7 +6371,7 @@
         "difficulty": "Medium",
         "chapter": "A Slumber Did My Spirit Seal",
         "Class": "Class 9",
-        "Subject": "Science",
+        "Subject": "English",
         "Topic": "A Slumber Did My Spirit Seal"
     },
     {
